@@ -4,10 +4,10 @@ The Software Engineering Project for Team 7
 
 Members
 -----------------
-Fahad Alsaudee
-James Lindsey
-Samuel McGuire
-Merrillee Palmer
-Terrance Santilli
-John Schumm
-Rachel Snyder
+Fahad Alsaudee (Mobile)
+James Lindsey (Database/Web)
+Samuel McGuire (Mobile)
+Merrillee Palmer (Mobile)
+Terrance Santilli (Mobile)
+John Schumm (Database/Web)
+Rachel Snyder (Web)
