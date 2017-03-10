@@ -8,9 +8,9 @@ Fahad Alsaudee (Mobile)
 
 James Lindsey (Database/Web)
 
-    -(904) 864-5205
+    (904) 864-5205
 
-    -lindsey.jamesc@gmail.com
+    lindsey.jamesc@gmail.com
 
 Samuel McGuire (Mobile)
 
