@@ -12,7 +12,7 @@ James Lindsey (Database/Web)
 
     lindsey.jamesc@gmail.com
 
-Samuel McGuire (Mobile)
+Samuel McGuire (Mobile/Web)
 
 Merrillee Palmer (Mobile)
 
