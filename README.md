@@ -4,6 +4,10 @@ The Software Engineering Project for Team 7
 
 Members
 -----------------
+Slack Team URL:	bandsnearme.slack.com
+
+Members
+-----------------
 Fahad Alsaudee (Mobile)
 
 James Lindsey (Database/Web)
