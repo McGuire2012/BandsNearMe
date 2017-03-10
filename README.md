@@ -2,9 +2,9 @@
 
 The Software Engineering Project for Team 7
 
-Members
+Slack
 -----------------
-Slack Team URL:	bandsnearme.slack.com
+Team URL:	bandsnearme.slack.com
 
 Members
 -----------------
@@ -15,6 +15,8 @@ James Lindsey (Database/Web)
     (904) 864-5205
 
     lindsey.jamesc@gmail.com
+    
+    Slack Username: james-lindsey
 
 Samuel McGuire (Mobile/Web)
 
