@@ -26,4 +26,10 @@ Terrance Santilli (Mobile)
 
 John Schumm (Database/Web)
 
+    (904)536-1508
+
+    jt.schumm@gmail.com
+    
+    Slack Username: jt
+
 Rachel Snyder (Web)
