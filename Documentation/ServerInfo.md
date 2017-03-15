@@ -1,6 +1,6 @@
 Students login with remote desktop using their UNF n-number and password.
 
-UserName in this format: UNFCSD\n########
+"UserName in this format: UNFCSD\n########"
 
 System 1
 -----------
@@ -18,6 +18,9 @@ System 2
 
 
 MS SQL Express with tools have been loaded.
+
+"The database manager is SQL Management Studio. I pinned it on the taskbar for convenience."
+
 The system administrator account is local with the following password.
 
 	ID = SA
