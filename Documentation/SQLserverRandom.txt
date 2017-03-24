@@ -1,3 +1,6 @@
+~~~~~~~~~~~~~~ Random Knowledge ~~~~~~~~~~~~~~~~~~~~~~~
+Both Servers have identical tables/ information
+
 ~~~~~~~~~~~~~~ SQL STUFF ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Select * FROM USER; 
 
@@ -6,6 +9,15 @@ DROP TABLE USER;
 UPDATE VENUE
 SET VRating = 5
 WHERE VenueName = 'Venue1';
+
+~~~~~~~~~~~~~~~
+ Full Restore:
+~~~~~~~~~~~~~~~
+
+DROP TABLE USERS;
+DROP TABLE VENUE;
+DROP TABLE BAND;
+DROP TABLE SHOW;
 
 CREATE TABLE USERS (
     UserName NVarChar(20) PRIMARY KEY,
@@ -85,6 +97,3 @@ SELECT * FROM BAND;
 SELECT * FROM USERS;
 SELECT * FROM VENUE;
 SELECT * FROM SHOW;
-
-
-~~~~~~~~~~~~~~ Random Knowledge ~~~~~~~~~~~~~~~~~~~~~~~~~
