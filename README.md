@@ -33,3 +33,9 @@ John Schumm (Database/Web)
     Slack Username: jt
 
 Rachel Snyder (Web)
+
+    (904)703-4746
+
+    businessrachelsn@gmail.com
+    
+    Slack Username: patterndays
