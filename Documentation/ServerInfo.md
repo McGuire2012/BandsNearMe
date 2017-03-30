@@ -5,16 +5,16 @@ Students login with remote desktop using their UNF n-number and password.
 System 1
 -----------
 
-	cisvm-senpro1.unfcsd.unf.edu
+	cisvm-senpro1.unfcsd.unf.edu (not currently active)
   
-	192.168.100.71
+	192.168.100.71 (use IP instead)
 
 System 2
 -----------
 
-	cisvm-senpro2.unfcsd.unf.edu
+	cisvm-senpro2.unfcsd.unf.edu (not currently active)
   
-	192.168.100.72
+	192.168.100.72 (use IP instead)
 
 
 MS SQL Express with tools have been loaded.
