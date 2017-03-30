@@ -7,14 +7,14 @@ System 1
 
 	cisvm-senpro1.unfcsd.unf.edu
   
-	139.62.210.167
+	192.168.100.71
 
 System 2
 -----------
 
 	cisvm-senpro2.unfcsd.unf.edu
   
-	139.62.210.168
+	192.168.100.72
 
 
 MS SQL Express with tools have been loaded.
