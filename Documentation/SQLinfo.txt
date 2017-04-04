@@ -42,43 +42,45 @@ INSERT INTO USERS VALUES ('HungryGuy','OMGimstarving','Indiv','HungryGuy@gmail.c
 INSERT INTO USERS VALUES ('TitsMcGee','imwstoopid','Indiv','TitsMcGee@gmail.com',NULL,NULL);
 INSERT INTO USERS VALUES ('Goldfish','delitcious','Indiv','Goldfish@gmail.com',NULL,NULL);
 
-INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com',NULL,'Band1');
-INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com',NULL,'Band2');
-INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com',NULL,'Band3');
-INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com',NULL,'Band4');
-INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com',NULL,'Band5');
+INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com',NULL,'The Firsts');
+INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com',NULL,'The Number Twos');
+INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com',NULL,'333');
+INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com',NULL,'4th Place');
+INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com',NULL,'High 5s');
 
-INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','Venue1',NULL);
-INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','Venue2',NULL);
-INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','Venue3',NULL);
-INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','Venue4',NULL);
-INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','Venue5',NULL);
+INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','The Venue 1st',NULL);
+INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','The Venue 2nd',NULL);
+INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','The Venue 3rd',NULL);
+INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','The Venue 4th',NULL);
+INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','The Venue 5th',NULL);
 
 CREATE TABLE VENUE (
-    VenueName NVarChar(60) PRIMARY KEY,
+	VUserName NVarChar(20) PRIMARY KEY
+    	VenueName NVarChar(60),
 	VenueLoc NVarChar(200),
 	VRating Numeric(2,1),
 	VDesc NVarChar(max)
 );
 
-INSERT INTO VENUE VALUES ('Venue1','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND1 IS THE BEST BAND');
-INSERT INTO VENUE VALUES ('Venue2','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND2 IS THE ALMOST THE BEST BAND');
-INSERT INTO VENUE VALUES ('Venue3','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND3 IS FINE');
-INSERT INTO VENUE VALUES ('Venue4','UPDATEWITHGOOGLELOCATIONKEYS',0,'AT LEAST BAND4 ISNT BAND5');
-INSERT INTO VENUE VALUES ('Venue5','UPDATEWITHGOOGLELOCATIONKEYS',0,'WHELP...');
+INSERT INTO VENUE VALUES ('Venue1','The Venue 1st','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND1 IS THE BEST BAND');
+INSERT INTO VENUE VALUES ('Venue2','The Venue 2nd','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND2 IS THE ALMOST THE BEST BAND');
+INSERT INTO VENUE VALUES ('Venue3','The Venue 3rd','UPDATEWITHGOOGLELOCATIONKEYS',0,'BAND3 IS FINE');
+INSERT INTO VENUE VALUES ('Venue4','The Venue 4th','UPDATEWITHGOOGLELOCATIONKEYS',0,'AT LEAST BAND4 ISNT BAND5');
+INSERT INTO VENUE VALUES ('Venue5','The Venue 5th','UPDATEWITHGOOGLELOCATIONKEYS',0,'WHELP...');
 
 CREATE TABLE BAND (
-    BandName NVarChar(60) PRIMARY KEY,
+	BUserName NVarChar(20) PRIMARY KEY
+    	BandName NVarChar(60),
 	Genre NVarChar(10),
 	VRating Numeric(2,1),
 	VDesc NVarChar(max)
 );
 
-INSERT INTO BAND VALUES ('Band1','Rock',5,'BAND1 IS THE BEST BAND');
-INSERT INTO BAND VALUES ('Band2','Electronic',4,'BAND2 IS THE ALMOST THE BEST BAND');
-INSERT INTO BAND VALUES ('Band3','Jazz',3,'BAND3 IS FINE');
-INSERT INTO BAND VALUES ('Band4','Classical',2,'AT LEAST BAND4 ISNT BAND5');
-INSERT INTO BAND VALUES ('Band5','New Age',1,'WHELP...');
+INSERT INTO BAND VALUES ('Band1','The Firsts','Rock',5,'BAND1 IS THE BEST BAND');
+INSERT INTO BAND VALUES ('Band2','The Number Twos','Electronic',4,'BAND2 IS THE ALMOST THE BEST BAND');
+INSERT INTO BAND VALUES ('Band3','333','Jazz',3,'BAND3 IS FINE');
+INSERT INTO BAND VALUES ('Band4','4th Place','Classical',2,'AT LEAST BAND4 ISNT BAND5');
+INSERT INTO BAND VALUES ('Band5','High 5s','New Age',1,'WHELP...');
 
 CREATE TABLE SHOW (
     ShowID NVarChar(14) PRIMARY KEY,
