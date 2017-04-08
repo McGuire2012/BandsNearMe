@@ -3,9 +3,15 @@
 <body>
 
 <form action="parseFile.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
+    Select file to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="Upload File" name="submit">
+</form>
+<form method="post" action="parse-textarea.php">
+<p>In 25 words or less, state what additional information you would like to see on this site:</p>
+<p><textarea name="moreinfo" cols="60" rows="10" required="required">
+</textarea><br/>
+<input type="submit" value="Submit Answer"> <input type="reset"></p>
 </form>
 
 </body>
