@@ -1,16 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>parse Textarea</title>
+<meta charset="utf-8">
+</head>
+<body>
 <?php
 $user = "SA";
 $PW = "111#ZXC#222";
 $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$target_file = file_get_contents($_FILES['fileToUpload']['tmp_name']);
-echo "<pre>";
-    print_r($_FILES);
-    echo file_get_contents($_FILES['file']['tmp_name']);
-    echo "</pre>";
-$rows        = explode(PHP_EOL, $target_file);
+$moreinfo=$_POST['moreinfo'];
+$rows = explode(PHP_EOL, $moreinfo);
 
 //send request to Show table to retrieve the last show ID
 //array_shift($rows);
@@ -19,7 +21,6 @@ foreach($rows as $row => $data)
 echo "we're in";
 $sql = "SELECT TOP 1 * FROM Show ORDER BY ShowID DESC";
 $q = $conn->query($sql);
-$q -> execute();
 $result = $q->fetchAll();
 $lastId = $result[0][0];
 $lastId = str_replace('S', '', $lastId);
@@ -35,6 +36,7 @@ $showID = "S".$zeroAppend;
 echo "halp";
 //get row data
     $row_data = explode(',', $data);
+echo "$row_data[0]";
 
 $sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]')";
 //$sql = "INSERT INTO SHOW (ShowID, BandName, VenueName, SDesc, ShowDate, ShowTime) VALUES ('S0000000000012','Willy Wonka','Chocolate Factory','Chocolate wasted', '2018-02-16', '03:30')";
@@ -63,8 +65,8 @@ catch(PDOException $e)
     {
     echo "$e";
     }
-    
-
-    echo 'TITZ';
 }
+
 ?>
+</body>
+</html>
