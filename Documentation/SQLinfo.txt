@@ -24,35 +24,36 @@ CREATE TABLE USERS (
 	UserPW NVarChar(20),
 	UserType NVarChar(5),
 	UserEmail NVarChar(30),
+	StartDate Date,
 	VenueName NVarChar(60),
 	BandName NVarChar(60)
 );
 
-INSERT INTO USERS VALUES ('LindseyJ','n00972410','Admin','n00972410@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SchummJ','n00959880','Admin','n00959880@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('PalmerM','n00449190','Admin','n00449190@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SnyderR','n00665157','Admin','n00665157@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('FahadA','n01048046','Admin','n01048046@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('McQuireS','n00840585','Admin','n00840585@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SantilliT','n00955820','Admin','n00972410@ospreys.unf.edu',NULL,NULL);
+INSERT INTO USERS VALUES ('LindseyJ','n00972410','Admin','n00972410@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SchummJ','n00959880','Admin','n00959880@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('PalmerM','n00449190','Admin','n00449190@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SnyderR','n00665157','Admin','n00665157@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('FahadA','n01048046','Admin','n01048046@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('McQuireS','n00840585','Admin','n00840585@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SantilliT','n00955820','Admin','n00972410@ospreys.unf.edu','2017-03-28',NULL,NULL);
 
-INSERT INTO USERS VALUES ('Gamer420','D13N00B5','Indiv','Gamer420@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('SexyRobot','0110110','Indiv','SexyRobot@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('HungryGuy','OMGimstarving','Indiv','HungryGuy@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('TitsMcGee','imwstoopid','Indiv','TitsMcGee@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('Goldfish','delitcious','Indiv','Goldfish@gmail.com',NULL,NULL);
+INSERT INTO USERS VALUES ('Gamer420','D13N00B5','Indiv','Gamer420@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('SexyRobot','0110110','Indiv','SexyRobot@gmail.com','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('HungryGuy','OMGimstarving','Indiv','HungryGuy@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('TitsMcGee','imwstoopid','Indiv','TitsMcGee@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('Goldfish','delitcious','Indiv','Goldfish@gmail.com','2017-03-29',NULL,NULL);
 
-INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com',NULL,'The Firsts');
-INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com',NULL,'The Number Twos');
-INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com',NULL,'333');
-INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com',NULL,'4th Place');
-INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com',NULL,'High 5s');
+INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com','2017-03-30',NULL,'The Firsts');
+INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com','2017-03-29',NULL,'The Number Twos');
+INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com','2017-03-30',NULL,'333');
+INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com','2017-04-01',NULL,'4th Place');
+INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com','2017-04-01',NULL,'High 5s');
 
-INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','The Venue 1st',NULL);
-INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','The Venue 2nd',NULL);
-INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','The Venue 3rd',NULL);
-INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','The Venue 4th',NULL);
-INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','The Venue 5th',NULL);
+INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','2017-04-01','The Venue 1st',NULL);
+INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','2017-04-02','The Venue 2nd',NULL);
+INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','2017-03-30','The Venue 3rd',NULL);
+INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','2017-04-01','The Venue 4th',NULL);
+INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','2017-03-30','The Venue 5th',NULL);
 
 CREATE TABLE VENUE (
 	VUserName NVarChar(20) PRIMARY KEY,
@@ -72,8 +73,8 @@ CREATE TABLE BAND (
 	BUserName NVarChar(20) PRIMARY KEY,
     	BandName NVarChar(60),
 	Genre NVarChar(10),
-	VRating Numeric(2,1),
-	VDesc NVarChar(max)
+	BRating Numeric(2,1),
+	BDesc NVarChar(max)
 );
 
 INSERT INTO BAND VALUES ('Band1','The Firsts','Rock',5,'BAND1 IS THE BEST BAND');
