@@ -5,6 +5,7 @@ array_shift($rows);
 
 foreach($rows as $row => $data)
 {
+	//hi rachel
     //get row data
     $row_data = explode(',', $data);
 
