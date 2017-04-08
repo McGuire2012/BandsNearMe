@@ -85,8 +85,8 @@ INSERT INTO BAND VALUES ('Band5','High 5s','New Age',1,'WHELP...');
 
 CREATE TABLE SHOW (
     ShowID NVarChar(14) PRIMARY KEY,
-	BandName NVarChar(60),
-	VenueName NVarChar(60),
+	BUserName NVarChar(60),
+	VUserName NVarChar(60),
 	SDesc NVarChar(max),
 	VenueLoc NVarChar(200),
 	ShowDate Date,
