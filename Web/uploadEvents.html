@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<h2>Book performances</h2>
+<p>You can either upload a file or use the textbox provided to create a single show or multiple shows at once! Follow this format to create an event.</p>
+<p>"BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)". This will guarentee the show to go through.</p>
+<p>No special characters cannot be used at this time (' , : ; \ / { } etc...). Otherwise the request will not be processed.</p>
+<p>To create multiple shows at once, press enter to start a new line and follow the templete again. </p>
 <form action="parseFile.php" method="post" enctype="multipart/form-data">
     Select file to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload File" name="submit">
 </form>
 <form method="post" action="parse-textarea.php">
-<p>In 25 words or less, state what additional information you would like to see on this site:</p>
 <p><textarea name="moreinfo" cols="60" rows="10" required="required">
 </textarea><br/>
 <input type="submit" value="Submit Answer"> <input type="reset"></p>
