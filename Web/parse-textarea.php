@@ -18,7 +18,6 @@ $rows = explode(PHP_EOL, $moreinfo);
 //array_shift($rows);
 foreach($rows as $row => $data)
 {
-echo "we're in";
 $sql = "SELECT TOP 1 * FROM Show ORDER BY ShowID DESC";
 $q = $conn->query($sql);
 $result = $q->fetchAll();
@@ -33,37 +32,20 @@ for ($i =1; $i <(13 - $idLength); $i++)
 	}
 $zeroAppend = $zeroAppend.$lastId;
 $showID = "S".$zeroAppend;
-echo "halp";
 //get row data
-    $row_data = explode(',', $data);
-echo "$row_data[0]";
+$row_data = explode(',', $data);
+
 
 $sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]')";
-//$sql = "INSERT INTO SHOW (ShowID, BandName, VenueName, SDesc, ShowDate, ShowTime) VALUES ('S0000000000012','Willy Wonka','Chocolate Factory','Chocolate wasted', '2018-02-16', '03:30')";
 
-    
-
-    $info[$row]['band']           = $row_data[0];
-    $info[$row]['venue']         = $row_data[1];
-    $info[$row]['description']  = $row_data[2];
-    $info[$row]['date']       = $row_data[3];
-    $info[$row]['time']       = $row_data[4];
-    
-
-    //display data
-    echo "$showID</br>";
-    echo ' BAND: ' . $info[$row]['band'] . '<br />';
-    echo ' VENUE: ' . $info[$row]['venue'] . '<br />';
-    echo ' DESCRIPTION: ' . $info[$row]['description'] . '<br />';
-    echo ' DATE: ' . $info[$row]['date']  . '<br />';
-    echo ' TIME: ' . $info[$row]['time']  . '<br />';
 try{
 	$q = $conn->query($sql);
-       // $q -> execute();
+	echo "$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4]  has been created with show ID: $showID </br>";
+    
 }
 catch(PDOException $e)
     {
-    echo "$e";
+    echo "$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was not created </br>";
     }
 }
 
