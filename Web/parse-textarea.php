@@ -45,7 +45,7 @@ try{
 }
 catch(PDOException $e)
     {
-    echo "$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was not created </br>";
+    echo "<span style = 'color: #ff0000'>$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was not created </span></br>";
     }
 }
 
