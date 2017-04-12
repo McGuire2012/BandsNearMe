@@ -1,4 +1,16 @@
 <?php
+	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
+	//test to make sure the user is logged in
+	if($_SESSION['username'] == ""){
+		header("Location: index.php");
+	} //This if statement and the sessionstart need to be at the top of every page except for index.php
+	
+	$username = $_SESSION['username'];
+	
+	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
+	
+	//need to grab every detail from the account table
+	
 	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated. 
 	//Based on user type the forms will populate differently. Based on indiv, venue, band.
 ?>
@@ -12,6 +24,11 @@
     <title>Home Page</title>
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="Styles/form.css" rel="stylesheet">
+	
+	<!-- Javascript here please -->
+	</script>
+	
+	<script>
 	</head>
 
 	<body>
