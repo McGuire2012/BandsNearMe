@@ -1,3 +1,7 @@
+<?php
+	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated. 
+	//Based on user type the forms will populate differently. Based on indiv, venue, band.
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,7 +19,7 @@
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="#">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
