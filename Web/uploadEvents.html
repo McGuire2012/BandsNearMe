@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
+	<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Home Page</title>
+    <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="Styles/form.css" rel="stylesheet">
+	</head>
 <body>
+  <!--Top & SideNavBar -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+       <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+        <a class="navbar-brand" href="#">BandsNearMe</a>
+      </div>
+      <div class="collapse navbar-collapse" style="background-color:#2C2929">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li class="active"><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+  </div><!--/.navbar -->
+
+<div class="container">
+  <div class="panel panel-default">
 <h2>Book performances</h2>
 <p>You can either upload a file or use the textbox provided to create a single show or multiple shows at once! Follow this format to create an event.</p>
 <p>"BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)". This will guarentee the show to go through.</p>
@@ -14,7 +41,13 @@
 <form method="post" action="parse-textarea.php">
 <p><textarea name="moreinfo" cols="60" rows="10" required="required">
 </textarea><br/>
+<div class="form-group">
+<div class="col-lg-10 col-lg-offset-2">
 <input type="submit" value="Submit Answer"> <input type="reset"></p>
+</div>
+</div>
+</div>
+</div>
 </form>
 
 </body>
