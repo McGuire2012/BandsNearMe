@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,8 +11,17 @@
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="Styles/cover.css" rel="stylesheet">
 	<link href="Styles/login.css" rel="stylesheet">
-    
-	
+  <script>
+    checkValid(){
+      document.write("FUCK THIS SHIT");
+      <?
+        echo $user;
+        echo $password;
+
+      ?>
+    }
+  </script>
+
   </head>
 
 
@@ -75,16 +86,16 @@
       </div>
 
     <!--Modal Body -->
-  <form> <!--form-->
+  <form action="connect.php" method="post"> <!--form-->
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+          <input type="text" class="form-control" id="inputEmail"   placeholder="Email" required>
         </div>
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+           <input type="password" class="form-control" id="inputPassword"  placeholder="Password" required>
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> Remember Password
@@ -96,7 +107,7 @@
       <div class="modal-footer">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-0">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary"  >Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </div>
@@ -126,7 +137,7 @@
         <div class="col-md-12">
           <input type="text" class="form-control" id="inputEmail" placeholder="Email" required>
         </div>
-        
+
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
