@@ -1,4 +1,35 @@
+<?php
+$user = "SA";
+$PW = "111#ZXC#222";
+$conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+if($_POST['emails'])
+{
+  $user=$_POST['emails'];
+//  echo "$user</br>";
+}
+
+if($_POST['passwords'])
+{
+  $password = $_POST['passwords'];
+//  echo "$password</br>";
+}
+
+if($_POST['repeatPasswords'])
+{
+  $repeatPassword = $_POST['repeatPasswords'];
+  //echo "$repeatPassword</br>";
+    if($password != $repeatPassword)
+      {
+        $passError = "you done fucked up kid. use the same passwords dumbass.";
+        $keepOpen="<script> $('#acctCreationModal').modal('show'); </script>";
+      }
+}
+
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,16 +42,7 @@
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="Styles/cover.css" rel="stylesheet">
 	<link href="Styles/login.css" rel="stylesheet">
-  <script>
-    checkValid(){
-      document.write("FUCK THIS SHIT");
-      <?
-        echo $user;
-        echo $password;
 
-      ?>
-    }
-  </script>
 
   </head>
 
@@ -86,16 +108,16 @@
       </div>
 
     <!--Modal Body -->
-  <form action="connect.php" method="post"> <!--form-->
+  <form id = "login-form" action="" method="post"> <!--form-->
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" id="inputEmail"   placeholder="Email" required>
+          <input type="text" class="form-control" name = "emails" id="inputEmail"   placeholder="Email" required>
         </div>
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" id="inputPassword"  placeholder="Password" required>
+           <input type="password" class="form-control" name = "passwords" id="inputPassword"  placeholder="Password" required>
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> Remember Password
@@ -131,21 +153,21 @@
       </div>
 
     <!--Modal Body -->
-  <form> <!--form-->
+  <form id = "create-form" action="" method="post"> <!--form-->
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+          <input type="text" class="form-control" name = "emails" id="inputEmail" placeholder="Email" required>
         </div>
 
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+           <input type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
           <br>
-          <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password" required>
-          <br>
-          <input type="checkbox" required>By creating an account you agree to our <a href="#">Terms & Privacy</a>.
+          <input type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
+          <br><span class="error"><?php echo $keepOpen; echo $passError;?></span><br>
+          <input type="checkbox" required>*By creating an account you agree to our <a href="#">Terms & Privacy</a>.
           <br>
         </div>
       </div>
@@ -164,5 +186,29 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <script>
+      $(function(){
+         $('login-form').on('submit', function(e){
+              e.preventDefault();
+              $.ajax({
+                  type: "POST",
+                  data: $("login-form").serialize(),
+
+              });
+         });
+      });
+  </script>
+  <script>
+      $(function(){
+         $('create-form').on('submit', function(e){
+              e.preventDefault();
+              $.ajax({
+                  type: "POST",
+                  data: $("create-form").serialize(),
+
+              });
+         });
+      });
+  </script>
 </body>
 </html>

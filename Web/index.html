@@ -12,7 +12,7 @@
     <link href="Styles/cover.css" rel="stylesheet">
 	<link href="Styles/login.css" rel="stylesheet">
   <script>
-    
+
   </script>
 
   </head>
@@ -79,16 +79,16 @@
       </div>
 
     <!--Modal Body -->
-  <form action="connect.php" method="post"> <!--form-->
+  <form id = "login-form" action="connect.php" method="post"> <!--form-->
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" id="inputEmail"   placeholder="Email" required>
+          <input type="text" class="form-control" name = "emails" id="inputEmail"   placeholder="Email" required>
         </div>
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" id="inputPassword"  placeholder="Password" required>
+           <input type="password" class="form-control" name = "passwords" id="inputPassword"  placeholder="Password" required>
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> Remember Password
@@ -124,19 +124,19 @@
       </div>
 
     <!--Modal Body -->
-  <form> <!--form-->
+  <form id = "create-form" action="connect.php" method="post"> <!--form-->
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+          <input type="text" class="form-control" name = "emails" id="inputEmail" placeholder="Email" required>
         </div>
 
         <br>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+           <input type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
           <br>
-          <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password" required>
+          <input type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
           <br>
           <input type="checkbox" required>By creating an account you agree to our <a href="#">Terms & Privacy</a>.
           <br>
@@ -157,5 +157,34 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <script>
+      $(function(){
+         $('login-form').on('submit', function(e){
+              e.preventDefault();
+              $.ajax({
+                //  url: "connect.php",
+                  type: "POST",
+                  data: $("login-form").serialize(),
+                  success: function(data){
+                      alert("Successfully submitted.")
+                  }
+              });
+         });
+      });
+  </script>
+  <script>
+      $(function(){
+         $('create-form').on('submit', function(e){
+              e.preventDefault();
+              $.ajax({
+                  type: "POST",
+                  data: $("create-form").serialize(),
+                  success: function(data){
+                      alert("Successfully submitted.")
+                  }
+              });
+         });
+      });
+  </script>
 </body>
 </html>

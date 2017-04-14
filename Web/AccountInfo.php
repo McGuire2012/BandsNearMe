@@ -4,14 +4,18 @@
 	if($_SESSION['username'] == ""){
 		header("Location: index.php");
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
-	
+
 	$username = $_SESSION['username'];
-	
+
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
-	
+	$user = "SA";
+	$PW = "111#ZXC#222";
+	$conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
+	// set the PDO error mode to exception
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	//need to grab every detail from the account table
-	
-	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated. 
+
+	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
 	//Based on user type the forms will populate differently. Based on indiv, venue, band.
 ?>
 <!DOCTYPE html>
@@ -24,15 +28,15 @@
     <title>Home Page</title>
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="Styles/form.css" rel="stylesheet">
-	
+
 	<!-- Javascript here please -->
 	</script>
-	
+
 	<script>
 	</head>
 
 	<body>
- 
+
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
@@ -125,10 +129,10 @@
   </fieldset>
 </form> <!-- End Form-->
  </div>
- 
+
 </div> <!-- End Container -->
 
-  
+
 
 	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
