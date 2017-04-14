@@ -29,41 +29,75 @@
 <div class="container">
   <div class="panel panel-default">
   <div class="panel-body">
+  		<div class="alert alert-dismissible alert-warning">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<h4>Warning!</h4>
+			<p>No Special Characters in text area!</p>
+		</div>
 	<div class="row">	
-		<div class="col-md-4"><h3 style="color:#4A4A4A">Book Performances</h3> </div>
 		<div class="col-md-4"></div>
+		<div class="col-md-8"><h3 style="color:#4A4A4A">Book Performances</h3> </div>
 	</div>
 	<br>
-	<p>	You can either upload a file or use the textbox provided to create a single show or multiple shows at once! Follow this format to create an event.</p>
-	<p>"BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)". This will guarentee the show to go through.</p>
-	<p>No special characters cannot be used at this time (' , : ; \ / { } etc...). Otherwise the request will not be processed.</p>
-	<p>To create multiple shows at once, press enter to start a new line and follow the templete again. </p>
+	<br>
+	<div class="row">	
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<p class="lead">You can either upload a file <b>or</b> use the textbox provided to create a single show or multiple shows at once!</p>
+		</div>
+	</div>
 	<br>
 <!-- FORM -->
 	
 	<form action="parseFile.php" method="post" enctype="multipart/form-data">
 		<div class="row">
+			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<h5 style="color:#4A4A4A">Select file to upload:</h5>
+				<h5 style="color:#4A4A4A">Select file to upload an event:</h5>
 			</div>
 		</div>
-		<label class="btn btn-primary" for="fileToUpload">
-			Choose File<input type="file" name="fileToUpload" id="fileToUpload" style="display:none">
-		</label>
-		<input type="submit" value="Upload File" name="submit" class="btn btn-default">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<label class="btn btn-default" for="fileToUpload">
+					Choose File<input type="file" name="fileToUpload" id="fileToUpload" style="display:none">
+				</label>
+				<input type="submit" value="Upload File" name="submit" class="btn btn-primary">
+			</div>
+		</div>
 	</form>
+	<br>
+	<br>
 	<br>
 <!-- END FORM -->
 	<form method="post" action="parse-textarea.php">
 		<div class="row">
-			<div class="col-md-1">	
-				<textarea name="moreinfo" cols="60" rows="10" required></textarea>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<p class="lead">Follow the format below to create an event by text:</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<p>BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)</p>
 			</div>
 		</div>
 		<br>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">	
+				<textarea name="moreinfo" cols="60" rows="10" placeholder="BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)" required></textarea>
+				<span class="help-block">To create multiple shows at once, press enter to start a new line and follow the template again.</span>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
 		<div class="form-group">
 			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
+				<div class="col-md-4"></div>
+					<div class="col-md-4">
 					<input type="submit" value="Submit Answer" class="btn btn-primary">
 					<input type="reset" class="btn btn-default">
 				</div>
