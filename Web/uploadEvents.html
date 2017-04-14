@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" style="background-color:#2C2929">
         <ul class="nav navbar-nav">
           <li><a href="#">Home</a></li>
-          <li class="active"><a href="#about">About</a></li>
+          <li class="active"><a href="#about">Account</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -28,27 +28,54 @@
 
 <div class="container">
   <div class="panel panel-default">
-<h2>Book performances</h2>
-<p>You can either upload a file or use the textbox provided to create a single show or multiple shows at once! Follow this format to create an event.</p>
-<p>"BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)". This will guarentee the show to go through.</p>
-<p>No special characters cannot be used at this time (' , : ; \ / { } etc...). Otherwise the request will not be processed.</p>
-<p>To create multiple shows at once, press enter to start a new line and follow the templete again. </p>
-<form action="parseFile.php" method="post" enctype="multipart/form-data">
-    Select file to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload File" name="submit">
-</form>
-<form method="post" action="parse-textarea.php">
-<p><textarea name="moreinfo" cols="60" rows="10" required="required">
-</textarea><br/>
-<div class="form-group">
-<div class="col-lg-10 col-lg-offset-2">
-<input type="submit" value="Submit Answer"> <input type="reset"></p>
+  <div class="panel-body">
+	<div class="row">	
+		<div class="col-md-4"><h3 style="color:#4A4A4A">Book Performances</h3> </div>
+		<div class="col-md-4"></div>
+	</div>
+	<br>
+	<p>	You can either upload a file or use the textbox provided to create a single show or multiple shows at once! Follow this format to create an event.</p>
+	<p>"BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)". This will guarentee the show to go through.</p>
+	<p>No special characters cannot be used at this time (' , : ; \ / { } etc...). Otherwise the request will not be processed.</p>
+	<p>To create multiple shows at once, press enter to start a new line and follow the templete again. </p>
+	<br>
+<!-- FORM -->
+	
+	<form action="parseFile.php" method="post" enctype="multipart/form-data">
+		<div class="row">
+			<div class="col-md-4">
+				<h5 style="color:#4A4A4A">Select file to upload:</h5>
+			</div>
+		</div>
+		<label class="btn btn-primary" for="fileToUpload">
+			Choose File<input type="file" name="fileToUpload" id="fileToUpload" style="display:none">
+		</label>
+		<input type="submit" value="Upload File" name="submit" class="btn btn-default">
+	</form>
+	<br>
+<!-- END FORM -->
+	<form method="post" action="parse-textarea.php">
+		<div class="row">
+			<div class="col-md-1">	
+				<textarea name="moreinfo" cols="60" rows="10" required></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0">
+					<input type="submit" value="Submit Answer" class="btn btn-primary">
+					<input type="reset" class="btn btn-default">
+				</div>
+			</div>
+		</div>
+	</form>
+  </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</form>
 
+	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </body>
 </html>

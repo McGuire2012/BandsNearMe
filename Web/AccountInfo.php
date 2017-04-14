@@ -42,7 +42,7 @@
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
         <li><a href="#">Home</a></li>
-        <li class="active"><a href="#about">About</a></li>
+        <li class="active"><a href="#about">Account</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -130,7 +130,8 @@
 
   
 
-
-
+	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </body>
 </html>
