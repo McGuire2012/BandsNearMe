@@ -1,3 +1,12 @@
+<?php
+$user = "SA";
+$PW = "111#ZXC#222";
+$conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -23,7 +32,7 @@
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="home.php">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
 				<li><a href="#performances">Book Performance</a></li>

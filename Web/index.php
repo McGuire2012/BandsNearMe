@@ -63,9 +63,9 @@ if($_POST['repeatPasswords'])
               <h3 class="masthead-brand"></h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li class="active"><a href="home.php">Home</a></li>
+                  <li><a href="about.html">Features</a></li>
+                  <li><a href="contact.html">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -139,7 +139,7 @@ if($_POST['repeatPasswords'])
 
   </div>
 </div>
-
+<?php echo $keepOpen; ?>
 <!-- ACCOUNT CREATION MODAL FORM -->
 <!-- Modal -->
 <div id="acctCreationModal" class="modal fade" role="dialog">
@@ -166,7 +166,7 @@ if($_POST['repeatPasswords'])
            <input type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
           <br>
           <input type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
-          <br><span class="error"><?php echo $keepOpen; echo $passError;?></span><br>
+          <br><span class="error"><?php echo $passError;?></span><br>
           <input type="checkbox" required>*By creating an account you agree to our <a href="#">Terms & Privacy</a>.
           <br>
         </div>
@@ -205,6 +205,7 @@ if($_POST['repeatPasswords'])
               $.ajax({
                   type: "POST",
                   data: $("create-form").serialize(),
+                  $('#acctCreationModal').modal('show');
 
               });
          });
