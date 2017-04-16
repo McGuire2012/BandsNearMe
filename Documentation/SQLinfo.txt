@@ -107,17 +107,26 @@ INSERT INTO SHOW VALUES ('S0000000000009','Band3','Venue2','Shows are cool. 32',
 INSERT INTO SHOW VALUES ('S0000000000010','Band1','Venue1','Shows are cool. 11','UPDATEWITHGOOGLELOCKEYS','2017-04-29','21:30:00','The Firsts', 'The Venue 1st');
 
 
-
-
 SELECT * FROM BAND;
 SELECT * FROM USERS;
 SELECT * FROM VENUE;
 SELECT * FROM SHOW;
 
-
-JAMES IS A SLUT.
-
 UPDATE show SET VenueName = venue.VenueName FROM venue  INNER JOIN  show ON venue.VUserName = show.VUserName;
 	this updates the tables to make names nice like.
 	
-	
+CREATE TABLE FAVORITE (
+    FavID NVarChar(20) PRIMARY KEY,
+	Username NVarChar(20),
+	UserType NVarChar(5),
+	BUserName NVarChar(20),
+	VUserName NVarChar(20),
+	BandName NVarChar(60),
+	VenueName NVarChar(60)
+);
+
+INSERT INTO FAVORITE VALUES ('K0000000000000000001', 'Gamer420', 'Band', 'Band1', NULL, 'The Firsts', NULL);
+INSERT INTO FAVORITE VALUES ('K0000000000000000002', 'SexyRobot', 'Band', 'Band2', NULL, 'The Number Twos', NULL);
+INSERT INTO FAVORITE VALUES ('K0000000000000000003', 'HungryGuy', 'Venue', NULL, 'Venue1', NULL, 'The Venue 1st');
+
+
