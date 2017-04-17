@@ -1,12 +1,12 @@
 <?php
 	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
 	//test to make sure the user is logged in
-	if($_SESSION['username'] == ""){
+	if($_SESSION['email'] == ""){
 		header("Location: index.php");
 		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
-	$username = $_SESSION['username'];
+	$useremail = $_SESSION['email'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
 	$user = "SA";
@@ -31,9 +31,7 @@
     <link href="Styles/form.css" rel="stylesheet">
 
 	<!-- Javascript here please -->
-	</script>
 
-	<script>
 	</head>
 
 	<body>

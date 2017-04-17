@@ -19,11 +19,11 @@
 	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
 	//Based on user type the forms will populate differently. Based on indiv, venue, band.
 
-  $username = $_POST['UserName'];
 
 
 
 
+  $todayDate = $queryDateG = date("Y-m-d");
   $isAdmin = 0;
   $isPerformance = 0;
   $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
@@ -39,20 +39,54 @@
   {
     $isPerformance = 1;
   }
+  if($_POST['UserName'])
+  {
+    $username = $_POST['UserName'];
   $sql = "SELECT count(UserName) from USERS where UserName = '$username'";
   $q = $conn->query($sql);
   $result = $q->fetchAll();
   $resultCount = $result[0][0];
-
+  echo $resultCount;
   if($resultCount == "1")
   {
-
-    $email = "<br>Username already in user. Please choose another one.";
+    $errorISH = "<span style = 'color:red;'>An error has occured</span><br>";
+    $usernameError = "<br>Username already in user. Please choose another one.";
   }
   else {
-    $email = "<br>you're good";
+    $usernameError = "<br>you're good";
+    if($_POST['BandName'])
+    {
+      $bandname = $_POST['BandName'];
+      $bandDescription = $_POST['BandDesc'];
+      $bandGenre = $_POST['Genre'];
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, BandName, StartDate, ProfilePic) Values ('$username','$password', 'Band','$useremail', '$bandname', '$todayDate', 'Styles\bandIcon.jpg')";
+      $q = $conn->query($sql);
+      $sql = "INSERT INTO BAND (BUserName, BandName, Genre, BRating, BDesc, NumOfRatings) Values ('$username','$bandname', '$bandGenre','0', '$bandDescription', '0')";
+      $q = $conn->query($sql);
+      header("Location: home.php");
+  		die();
+
+    }
+    elseif ($_POST['VenueName']) {
+      $venuename = $_POST['venueName'];
+      $VenueDescription = $_POST['VenueDesc'];
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, VenueName, StartDate, ProfilePic) Values ('$username','$password', 'Venue','$useremail', '$venuename', '$todayDate', 'Styles\venueIcon.jpg')";
+      $q = $conn->query($sql);
+      $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings) Values ('$username','$venuename', '0', '$venueDescription', '0')";
+      $q = $conn->query($sql);
+      header("Location: home.php");
+  		die();
+    }
+    else {
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, StartDate, ProfilePic) Values ('$username','$password', 'Indiv','$useremail', '$todayDate', 'Styles\userIcon.jpg')";
+      $q = $conn->query($sql);
+      header("Location: home.php");
+  		die();
+    }
   }
 
+
+}
 
 ?>
 
@@ -92,24 +126,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="#">BandsNearMe</a>
+      <a class="navbar-brand" href="logout.php">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="home.php">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-				<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="pieTest.php">Types of User</a></li>
-            <li><a href="#">Traffic</a></li>
-            <li><a href="#">User Sign-Up Rate</a></li>
-          </ul>
-        </li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="logout.php">Cancel</a></li>
       </ul>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
@@ -124,12 +145,13 @@
 			<div class="col-lg-12">
 			<div class = "col-lg-10">
         <br><br>
+        <?php echo $errorISH; ?>
         <form id = "userChoice" >
         <input type="radio" name="choice" value="indiv" onclick="doIndiv()">Individual User
         <input type="radio" name="choice" value="band" onclick="doBand()">Band
         <input type="radio" name="choice" value="venue" onclick="doVenue()">Venue
       </form>
-      <form id = "indivUser"  style = "display:none;">
+      <form id = "indivUser"  action = "" method = "post" style = "display:none;">
         Email: <br>
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
@@ -138,11 +160,12 @@
         <br>
         User Name <br>
         <input type="text" name="UserName">
+        <?php echo $usernameError; ?>
         <br>
         <br>
-        <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-primary"  >Submit</button>
       </form>
-      <form id = "BUser" style = "display:none;">
+      <form id = "BUser"  action = "" method = "post" style = "display:none;">
         Email: <br>
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
@@ -151,9 +174,13 @@
         <br>
         User Name <br>
         <input type="text" name="UserName">
+        <?php echo $usernameError; ?>
         <br>
         Band Name <br>
         <input type="text" name="BandName">
+        <br>
+        Genre <br>
+        <input type="text" name="Genre">
         <br>
         <div class="row">
 
@@ -163,9 +190,9 @@
     			</div>
     		</div>
         <br>
-        <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-primary"  >Submit</button>
       </form>
-      <form id = "VUser" style = "display:none;">
+      <form id = "VUser"  action = "" method = "post" style = "display:none;">
         Email: <br>
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
@@ -174,10 +201,12 @@
         <br>
         User Name <br>
         <input type="text" name="UserName">
+        <?php echo "<br>"; echo $usernameError; ?>
         <br>
         Venue Name <br>
         <input type="text" name="VenueName">
         <br>
+
         <div class="row">
 
     			<div class="col-md-6">
@@ -186,7 +215,7 @@
     			</div>
     		</div>
         <br>
-        <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-primary"  >Submit</button>
       </form>
 
 
@@ -208,43 +237,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script>
-    $(function(){
-       $('indivUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("indivUser").serialize(),
 
-            });
-       });
-    });
-</script>
-<script>
-    $(function(){
-       $('BUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("BUser").serialize(),
-                $('#acctCreationModal').modal('show');
-
-            });
-       });
-    });
-</script>
-<script>
-    $(function(){
-       $('VUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("VUser").serialize(),
-                $('#acctCreationModal').modal('show');
-
-            });
-       });
-    });
-</script>
 </body>
 </html>

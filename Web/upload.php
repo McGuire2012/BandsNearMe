@@ -65,9 +65,11 @@
 			$name = $resultName;
 		}
   }
+
+
+  //new profilePicture
 if($_POST['newProfilePic'])
 {
-  echo "fuck this shit";
   $target_dir = 'uploads/'.$useremail.'/profilePicture'.'/';
   if (!file_exists('uploads/'.$useremail)) {
       mkdir('uploads/'.$useremail, 0777, true);
@@ -114,6 +116,9 @@ if($_POST['newProfilePic'])
         $sql = "update users set profilePic ='$target_file' where UserEmail = '$useremail'";
       	$q = $conn->query($sql);
           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+          header("Location: home.php");
+      		die();
+
       } else {
 
           echo "Sorry, there was an error uploading your file.";
@@ -127,118 +132,3 @@ if($_POST['newProfilePic'])
 
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>Home Page</title>
-    <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="Styles/form.css" rel="stylesheet">
-		<style>
-		img	{}
-		</style>
-	</head>
-
-	<body>
-<!--Top & SideNavBar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="#">BandsNearMe</a>
-    </div>
-    <div class="collapse navbar-collapse" style="background-color:#2C2929">
-      <ul class="nav navbar-nav">
-        <li><a href="home.php">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-				<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="pieTest.php">Types of User</a></li>
-            <li><a href="#">Traffic</a></li>
-            <li><a href="#">User Sign-Up Rate</a></li>
-          </ul>
-        </li>
-      </ul>
-			<ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="editProfile.php">Edit Profile</a></li>
-      <li><a href="logout.php">Logout</a></li>
-    </ul>
-    </div><!--/.nav-collapse -->
-</div><!--/.navbar -->
-
-
-
-<div class="container">
-  <!-- FORM -->
-  <div class="panel panel-default">
- <form class="form-horizontal">
-  <fieldset>
-		<div class="col-lg-12">
-		<div class="col-lg-5"><h3><?php echo $name; ?></h3>
-			</div>
-			</div>
-			<div class="col-lg-12">
-			<div class = "col-lg-10">
-        <form id = "UpdateProfile" action="upload.php" method="post">
-        <form id = "updateProfilePic"action="upload.php" method="post" enctype="multipart/form-data">
-            Update Profile Picture <br>
-            Select image to upload:
-            <input type="file" name="newProfilePic" id="newProfilePic">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-          <br>
-          Description <br>
-          <div class="row">
-      			<div class="col-md-6">
-      				<textarea name="Description" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
-      			</div>
-      		</div>
-          <br>
-          Add Pictures <br>
-          <a href = "PhotoUpload.html">Click here to add pictures</a>
-          <br>
-
-          <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-			</div>
-
-		</div>
-
-
-
-
-  </fieldset>
-</form> <!-- End Form-->
- </div>
-
-</div> <!-- End Container -->
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script>
-    $(function(){
-       $('updateProfilePic').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("updateProfilePic").serialize(),
-                $('#acctCreationModal').modal('show');
-
-            });
-       });
-    });
-</script>
-</body>
-</html>

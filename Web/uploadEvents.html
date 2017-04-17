@@ -12,19 +12,24 @@
 	</head>
 <body>
   <!--Top & SideNavBar -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header">
-       <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-        <a class="navbar-brand" href="#">BandsNearMe</a>
-      </div>
-      <div class="collapse navbar-collapse" style="background-color:#2C2929">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li class="active"><a href="#about">Account</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-  </div><!--/.navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	    <div class="navbar-header">
+	     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+	      <a class="navbar-brand" href="home.php">BandsNearMe</a>
+	    </div>
+	    <div class="collapse navbar-collapse" style="background-color:#2C2929">
+	      <ul class="nav navbar-nav">
+	        <li><a href="home.php">Home</a></li>
+	        <li><a href="about.html">About</a></li>
+	        <li><a href="contact.html">Contact</a></li>
+					<li class="active"><a href="uploadEvents.html">Book Performance</a></li>
+	      </ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="editProfile.php">Edit Profile</a></li>
+	      <li><a href="logout.php">Logout</a></li>
+	    </ul>
+	    </div><!--/.nav-collapse -->
+	</div><!--/.navbar -->
 
 <div class="container">
   <div class="panel panel-default">
@@ -34,13 +39,13 @@
 			<h4>Warning!</h4>
 			<p>No Special Characters in text area!</p>
 		</div>
-	<div class="row">	
+	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-8"><h3 style="color:#4A4A4A">Book Performances</h3> </div>
 	</div>
 	<br>
 	<br>
-	<div class="row">	
+	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<p class="lead">You can either upload a file <b>or</b> use the textbox provided to create a single show or multiple shows at once!</p>
@@ -48,7 +53,7 @@
 	</div>
 	<br>
 <!-- FORM -->
-	
+
 	<form action="parseFile.php" method="post" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-4"></div>
@@ -86,7 +91,7 @@
 		<br>
 		<div class="row">
 			<div class="col-md-3"></div>
-			<div class="col-md-6">	
+			<div class="col-md-6">
 				<textarea name="moreinfo" cols="60" rows="10" placeholder="BandName, Venue Name, Description of show, Show date (MM/DD/YYYY), Show time (Millitary 20:00 or 8:00pm)" required></textarea>
 				<span class="help-block">To create multiple shows at once, press enter to start a new line and follow the template again.</span>
 			</div>
