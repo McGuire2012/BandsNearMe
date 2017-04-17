@@ -92,7 +92,8 @@ CREATE TABLE SHOW (
 	ShowDate Date,
 	ShowTime Time(0),
 	BandName NVarChar(60),
-	VenueName NVarChar(60)
+	VenueName NVarChar(60),
+	VAddress NVarChar(300)
 );
 
 INSERT INTO SHOW VALUES ('S0000000000001','Band1','Venue5','Shows are cool. 15','UPDATEWITHGOOGLELOCKEYS','2017-04-28','20:30:00','The Firsts', 'The Venue 5th');
@@ -129,4 +130,49 @@ INSERT INTO FAVORITE VALUES ('Gamer420', 'Band', 'Band1', NULL, 'The Firsts', NU
 INSERT INTO FAVORITE VALUES ('SexyRobot', 'Band', 'Band2', NULL, 'The Number Twos', NULL);
 INSERT INTO FAVORITE VALUES ('HungryGuy', 'Venue', NULL, 'Venue1', NULL, 'The Venue 1st');
 
+UPDATE SHOW
+SET VAddress = '567 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue5';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '456 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue4';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '345 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue3';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '234 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue2';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '123 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue1';
+SELECT * FROM SHOW;
+
+UPDATE VENUE
+SET VAddress = '567 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue5';
+
+UPDATE VENUE
+SET VAddress = '456 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue4';
+
+UPDATE VENUE
+SET VAddress = '345 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue3';
+
+UPDATE VENUE
+SET VAddress = '234 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue2';
+
+UPDATE VENUE
+SET VAddress = '123 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue1';
+SELECT * FROM VENUE;
 
