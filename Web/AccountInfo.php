@@ -161,17 +161,19 @@
       </ul>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
-<!----------------- BANDS --------------------->
-<!----------------  FORM  --------------------->
+
+
 <div class="container">
-  <!-- FORM -->
-  <div class="panel panel-default">
- <form class="form-horizontal">
+
+<!----------------- Indiv User --------------------->
+<!-------------------  FORM  ----------------------->
+<div class="panel panel-default">
+ <form class="form-horizontal" id="indivUser" action="" method="post" style="display:none;">
   <fieldset>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $userEmail ?>">
       </div>
     </div>
     <div class="form-group">
@@ -180,9 +182,34 @@
         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
       </div>
     </div>
-	
-	
-<?php ?>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+ </form> <!-- End Form-->
+</div>
+
+<!----------------- BANDS --------------------->
+<!----------------  FORM  --------------------->
+<div class="panel panel-default">
+ <form class="form-horizontal" id="BUser" action="" method="post" style="display:none;">
+  <fieldset>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
+      <div class="col-lg-10">
+        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $userEmail ?>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+    </div>
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Textarea</label>
       <div class="col-lg-10">
@@ -214,14 +241,13 @@
       </div>
     </div>
   </fieldset>
-</form> <!-- End Form-->
- </div>
+ </form> <!-- End Form-->
+</div>
+
+<!----------------- VENUES --------------------->
+<!------------------ FORM  --------------------->
 
 </div> <!-- End Container -->
-
-
-
-
 
 
 	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
