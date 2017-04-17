@@ -1,5 +1,7 @@
 <?php
 session_start();
+unset($_SESSION['email']);
+ unset($_SESSION['passwords']);
 $user = "SA";
 $PW = "111#ZXC#222";
 $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
@@ -114,7 +116,7 @@ if($_POST['repeatPasswords'])
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="home.php">Home</a></li>
-                  <li><a href="about.html">Features</a></li>
+                  <li><a href="about.html">About</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </nav>

@@ -1,12 +1,13 @@
 <?php
 	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
 	//test to make sure the user is logged in
-	if($_SESSION['username'] == ""){
+	if($_SESSION['email'] == ""){
 		header("Location: index.php");
 		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
-	$username = $_SESSION['username'];
+	$useremail = $_SESSION['email'];
+    $password = $_SESSION['passwords'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
 	$user = "SA";
@@ -18,6 +19,72 @@
 
 	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
 	//Based on user type the forms will populate differently. Based on indiv, venue, band.
+	
+  $isAdmin = 0;
+  $isPerformance = 0;
+  
+  $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
+  $q = $conn->query($sql);
+  $result = $q->fetchAll();
+  $resultType = $result[0][0];
+  
+  if($resultType == "Admin")
+  {
+    $isAdmin = 1;
+    $isPerformance = 1;
+  }
+  
+  if($resultType == "Band")
+  {
+	$isPerformance = 1;
+    $sql = "SELECT * from BANDS where BUserName = '$username'";
+	$q = $conn->query($sql);
+	$result = $q->fetchAll();
+	$bandName = $result[0][0];
+	$genre = $result[0][1];
+	$rating = $result[0][2];
+	$description = $result[0][3];
+	
+	$sql = "SELECT * from USERS where UserName = '$username'";
+	$q = $conn->query($sql);
+	$result = $q->fetchAll();
+	$password = $result[0][0];
+	//$userType = $result[0][1];
+	$userEmail = $result[0][2];
+	//$startDate = $result[0][3];
+	
+  } else if ($resultType == "Venue")
+  {
+	$isPerformance = 1;
+	$sql = "SELECT * from VENUE where VUserName = '$username'";
+	$q = $conn->query($sql);
+	$result = $q->fetchAll();
+	$venueName = $result[0][0];
+	$venueLoc = $result[0][1];
+	$rating = $result[0][2];
+	$description = $result[0][3];
+	
+	$sql = "SELECT * from USERS where UserName = '$username'";
+	$q = $conn->query($sql);
+	$result = $q->fetchAll();
+	$password = $result[0][0];
+	//$userType = $result[0][1];
+	$userEmail = $result[0][2];
+	//$startDate = $result[0][3];
+	
+  } else
+  {
+	$sql = "SELECT * from USERS where UserName = '$username'";
+	$q = $conn->query($sql);
+	$result = $q->fetchAll();
+	$password = $result[0][0];
+	//$userType = $result[0][1];
+	$userEmail = $result[0][2];
+	//$startDate = $result[0][3];
+  }
+  
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,30 +98,71 @@
     <link href="Styles/form.css" rel="stylesheet">
 
 	<!-- Javascript here please -->
-	</script>
-
 	<script>
+	function getUserType(){
+		var userType = "<?php echo $resultType ?>";
+		if(userType == "Band" )
+		{
+			doBand();
+		} else if ( userType == "Venue" ){
+			doVenue();
+		} else if ( userType == "Admin" )
+		{
+			doIndiv(); //possibly change this later
+		} else
+		{
+			doIndiv();
+		}
+	}
+
+    function doIndiv(){
+        document.getElementById('indivUser').style.display = '';
+        document.getElementById('BUser').style.display = 'none';
+        document.getElementById('VUser').style.display = 'none';
+      }
+
+      function doBand(){
+        document.getElementById('indivUser').style.display = 'none';
+        document.getElementById('BUser').style.display = '';
+        document.getElementById('VUser').style.display = 'none';
+      }
+      function doVenue(){
+        document.getElementById('indivUser').style.display = 'none';
+        document.getElementById('BUser').style.display = 'none';
+        document.getElementById('VUser').style.display = '';
+      }
+
+    </script>
 	</head>
 
-	<body>
+<body onload="getUserType()">
 
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="#">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li class="active"><a href="#about">Account</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="active"><a href="home.php">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+		<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="pieTest.php">Types of User</a></li>
+            <li><a href="#">Traffic</a></li>
+            <li><a href="#">User Sign-Up Rate</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
-
-
-
+<!----------------- BANDS --------------------->
+<!----------------  FORM  --------------------->
 <div class="container">
   <!-- FORM -->
   <div class="panel panel-default">
@@ -70,13 +178,11 @@
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-        </div>
       </div>
     </div>
+	
+	
+<?php ?>
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Textarea</label>
       <div class="col-lg-10">
@@ -102,26 +208,6 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Selects</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <br>
-        <select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -135,8 +221,46 @@
 
 
 
+
+
+
 	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+	
+	<script>
+    $(function(){
+       $('indivUser').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                data: $("indivUser").serialize(),
+
+            });
+       });
+    });
+</script>
+<script>
+    $(function(){
+       $('BUser').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                data: $("BUser").serialize(),
+            });
+       });
+    });
+</script>
+<script>
+    $(function(){
+       $('VUser').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                data: $("VUser").serialize(),
+            });
+       });
+    });
+</script>
 </body>
 </html>

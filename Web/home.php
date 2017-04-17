@@ -23,6 +23,7 @@
 	$result = $q->fetchAll();
 	$resultName = $result[0][0];
 	$name = $resultName;
+	$_SESSION['username'] = $name;
   $isAdmin = 0;
   $isPerformance = 0;
   $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
@@ -51,7 +52,7 @@
 			$name = $resultName;
 		}
 		elseif ($resultType == "Venue") {
-			$sql = "SELECT Venue from USERS where UserEmail = '$useremail'";
+			$sql = "SELECT VenueName from USERS where UserEmail = '$useremail'";
 		  $q = $conn->query($sql);
 		  $result = $q->fetchAll();
 		  $resultName = $result[0][0];
@@ -92,7 +93,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="#">BandsNearMe</a>
+      <a class="navbar-brand" href="home.php">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
