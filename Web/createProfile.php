@@ -46,7 +46,6 @@
   $q = $conn->query($sql);
   $result = $q->fetchAll();
   $resultCount = $result[0][0];
-  echo $resultCount;
   if($resultCount == "1")
   {
     $errorISH = "<span style = 'color:red;'>An error has occured</span><br>";
@@ -61,11 +60,14 @@
       $bandGenre = $_POST['Genre'];
       $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, BandName, StartDate, ProfilePic) Values ('$username','$password', 'Band','$useremail', '$bandname', '$todayDate', 'Styles\bandIcon.jpg')";
       $q = $conn->query($sql);
-      $sql = "INSERT INTO BAND (BUserName, BandName, Genre, BRating, BDesc, NumOfRatings) Values ('$username','$bandname', '$bandGenre','0', '$bandDescription', '0')";
-      $q = $conn->query($sql);
-      header("Location: home.php");
-  		die();
+        $sql = "INSERT INTO BAND (BUserName, BandName, Genre, BRating, BDesc, NumOfRatings) Values ('$username','$bandname', '$bandGenre', '0', '$bandDescription', '0')";
+        $q = $conn->query($sql);
+        header("Location: home.php");
+        die();
 
+
+      //header("Location: home.php");
+    //  die();
     }
     elseif ($_POST['VenueName']) {
       $venuename = $_POST['venueName'];
@@ -75,14 +77,15 @@
       $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings) Values ('$username','$venuename', '0', '$venueDescription', '0')";
       $q = $conn->query($sql);
       header("Location: home.php");
-  		die();
+      die();
     }
     else {
       $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, StartDate, ProfilePic) Values ('$username','$password', 'Indiv','$useremail', '$todayDate', 'Styles\userIcon.jpg')";
       $q = $conn->query($sql);
       header("Location: home.php");
-  		die();
+      die();
     }
+
   }
 
 

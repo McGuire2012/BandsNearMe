@@ -23,6 +23,7 @@
 	$result = $q->fetchAll();
 	$resultName = $result[0][0];
 	$name = $resultName;
+	$username = $name;
 	$_SESSION['username'] = $name;
   $isAdmin = 0;
   $isPerformance = 0;
@@ -50,6 +51,14 @@
 		  $result = $q->fetchAll();
 		  $resultName = $result[0][0];
 			$name = $resultName;
+			$sql = "SELECT BDesc from BAND where BUserName = '$username'";
+		  $q = $conn->query($sql);
+		  $result = $q->fetchAll();
+		  $Bdesc = $result[0][0];
+			$Bdesc = '<div class = "col-lg-10">
+								<h4>Description</h4>
+								<p>'.$Bdesc.' </p>
+								</div>';
 		}
 		elseif ($resultType == "Venue") {
 			$sql = "SELECT VenueName from USERS where UserEmail = '$useremail'";
@@ -57,6 +66,14 @@
 		  $result = $q->fetchAll();
 		  $resultName = $result[0][0];
 			$name = $resultName;
+			$sql = "SELECT VDesc from VENUE where VUserName = '$username'";
+		  $q = $conn->query($sql);
+		  $result = $q->fetchAll();
+		  $Vdesc = $result[0][0];
+			$Vdesc = '<div class = "col-lg-10">
+								<h4>Description</h4>
+								<p>'.$Vdesc.' </p>
+								</div>';
 		}
 		else {
 			$sql = "SELECT Username from USERS where UserEmail = '$useremail'";
@@ -137,10 +154,8 @@
 				<p>PUT ALL YOUR PICTURES HERE</p>
 
 			</div>
-			<div class = "col-lg-10">
-				<h4>Description</h4>
-				<p>I LIKE BIG BUTTS AND I CANNOT LIE, ALL YOU OTHER BROTHERS CAN'T DENY WHEN A GIRL WALK IN WITH AN ITTY BITTY WAIST, YOU GET SPRUNG! </p>
-			</div>
+			<?php echo $Vdesc;?>
+			<?php echo $Bdesc;?>
 			<div class = "col-lg-10">
 				<h4>Favorites</h4>
 				<p>I LIKE TORTLES </p>
