@@ -39,7 +39,7 @@ if($resultType == "Band" || $resultType == "Venue")
 <!DOCTYPE html>
 <html>
 <head>
-<title>parse Textarea</title>
+<title>Parse Textarea</title>
 <meta charset="utf-8">
 </head>
 <body>

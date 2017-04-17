@@ -82,8 +82,6 @@
 	$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
   }
-  
-  
 
 ?>
 <!DOCTYPE html>
@@ -145,8 +143,9 @@
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="home.php">Home</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="about.html">About</a></li>
+		<li class="active"><a href="#">Account</a></li>
         <li><a href="contact.html">Contact</a></li>
 		<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
         <li class="dropdown">
@@ -211,25 +210,49 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+      <label for="textArea" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
+        <textarea class="form-control" rows="3" id="textArea"><?php echo $description ?></textarea>
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </div>
     </div>
     <div class="form-group">
-      <label class="col-lg-2 control-label">Radios</label>
+      <label class="col-lg-2 control-label">Genre</label>
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-            Option one is this
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="<?php echo $genre ?>" checked="">
+            <?php echo $genre ?>
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Rap">
+            Rap
+          </label>
+        </div>
+		<div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios3" value="Blues">
+            Blues
+          </label>
+        </div>
+		<div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios4" value="Rock / Alternative-Rock">
+            Rock / Alternative-Rock
+          </label>
+        </div>
+		<div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios5" value="Pop">
+            Pop
+          </label>
+        </div>
+		<div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios6" value="Indie">
+            Indie
           </label>
         </div>
       </div>
