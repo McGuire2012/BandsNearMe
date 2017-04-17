@@ -1,4 +1,5 @@
 <?php
+session_start();
 $user = "SA";
 $PW = "111#ZXC#222";
 $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
@@ -8,23 +9,72 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if($_POST['emails'])
 {
   $user=$_POST['emails'];
-//  echo "$user</br>";
+  $_SESSION['email'] = $user;
+        $sql = "SELECT count(UserEmail) from USERS where UserEmail = '$user'";
+        $q = $conn->query($sql);
+        $result = $q->fetchAll();
+        $resultCount = $result[0][0];
+
+        if($resultCount == "1")
+        {
+
+          $email = "<br>You have a correct email for login.";
+        }
+        else {
+          $email = "<br>not such email on file.";
+        }
 }
 
 if($_POST['passwords'])
 {
   $password = $_POST['passwords'];
-//  echo "$password</br>";
+
+
+  $sql = "select UserPW from USERS where UserEmail = '$user'";
+  $q = $conn->query($sql);
+  $result = $q->fetchAll();
+  $resultPass = $result[0][0];
+
+  if($resultPass == $password)
+  {
+
+    $passwordRight = "<br>you got email and password right!";
+    //redirect to home page now.
+    header("Location: home.php");
+    die();
+  }
+  else {
+    $passwordRight = "<br>Wrong password Bitch!";
+  }
 }
 
 if($_POST['repeatPasswords'])
 {
+  if($resultCount == "1")
+  {
+
+    $emailError = "<br>Email is already on file. Either login or use a different email.";
+  }
   $repeatPassword = $_POST['repeatPasswords'];
   //echo "$repeatPassword</br>";
     if($password != $repeatPassword)
       {
-        $passError = "you done fucked up kid. use the same passwords dumbass.";
-        $keepOpen="<script> $('#acctCreationModal').modal('show'); </script>";
+        $passError = "<br>you done fucked up kid. use the same passwords dumbass.";
+      }
+      else {
+        if($resultCount == "1")
+        {
+
+          $emailError = "<br>Email is already on file. Either login or use a different email.";
+        }
+        else {
+          $_SESSION['passwords']=$password;
+          $emailError = "<br>New Account CREATED!";
+          //redirect to account creation page.
+          header("Location: createProfile.php");
+          die();
+          ;
+        }
       }
 }
 
@@ -115,6 +165,8 @@ if($_POST['repeatPasswords'])
           <input type="text" class="form-control" name = "emails" id="inputEmail"   placeholder="Email" required>
         </div>
         <br>
+        <?php echo "$email";?>
+
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
            <input type="password" class="form-control" name = "passwords" id="inputPassword"  placeholder="Password" required>
@@ -123,6 +175,7 @@ if($_POST['repeatPasswords'])
                   <input type="checkbox"> Remember Password
                 </label>
               </div>
+              <?php echo "$passwordRight";?>
         </div>
       </div>
     <!-- Modal Footer -->
@@ -139,7 +192,6 @@ if($_POST['repeatPasswords'])
 
   </div>
 </div>
-<?php echo $keepOpen; ?>
 <!-- ACCOUNT CREATION MODAL FORM -->
 <!-- Modal -->
 <div id="acctCreationModal" class="modal fade" role="dialog">
@@ -159,14 +211,15 @@ if($_POST['repeatPasswords'])
         <div class="col-md-12">
           <input type="text" class="form-control" name = "emails" id="inputEmail" placeholder="Email" required>
         </div>
-
         <br>
+        <?php echo "$emailError"; ?>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
            <input type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
           <br>
           <input type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
-          <br><span class="error"><?php echo $passError;?></span><br>
+          <span class="error"><?php echo "$passError";?></span>
+
           <input type="checkbox" required>*By creating an account you agree to our <a href="#">Terms & Privacy</a>.
           <br>
         </div>

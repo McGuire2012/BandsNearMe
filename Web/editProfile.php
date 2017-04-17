@@ -112,7 +112,7 @@
         </li>
       </ul>
 			<ul class="nav navbar-nav navbar-right">
-			<li><a href="editProfile.php">Edit Profile</a></li>
+      <li><a href="editProfile.php">Edit Profile</a></li>
       <li><a href="logout.php">Logout</a></li>
     </ul>
     </div><!--/.nav-collapse -->
@@ -127,23 +127,30 @@
   <fieldset>
 		<div class="col-lg-12">
 		<div class="col-lg-5"><h3><?php echo $name; ?></h3>
-			<img <?php echo 'src = "'.$profilePicture.'"'; ?> class = "thumbnail" width="200" height="200" />
 			</div>
 			</div>
 			<div class="col-lg-12">
 			<div class = "col-lg-10">
-				<h4>Photos</h4>
-				<p>PUT ALL YOUR PICTURES HERE</p>
+        <form id = "UpdateProfile" >
+          Update Profile Picture <br>
+          <input type="text" name="profilePic" >
+          <br>
+          Description <br>
+          <div class="row">
+      			<div class="col-md-6">
+      				<textarea name="Description" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
+      			</div>
+      		</div>
+          <br>
+          Add Pictures <br>
+          <input type="text" name="UserName">
+          <br>
 
+          <br>
+          <input type="submit" value="Submit">
+        </form>
 			</div>
-			<div class = "col-lg-10">
-				<h4>Description</h4>
-				<p>I LIKE BIG BUTTS AND I CANNOT LIE, ALL YOU OTHER BROTHERS CAN'T DENY WHEN A GIRL WALK IN WITH AN ITTY BITTY WAIST, YOU GET SPRUNG! </p>
-			</div>
-			<div class = "col-lg-10">
-				<h4>Favorites</h4>
-				<p>I LIKE TORTLES </p>
-			</div>
+
 		</div>
 
 

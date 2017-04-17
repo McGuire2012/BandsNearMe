@@ -3,6 +3,7 @@
 	//test to make sure the user is logged in
 	if($_SESSION['username'] == ""){
 		header("Location: index.php");
+		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
 	$username = $_SESSION['username'];

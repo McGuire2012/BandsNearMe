@@ -1,15 +1,20 @@
 <?php
+session_start();
+if($_SESSION['email'] == ""){
+  header("Location: index.php");
+  die();
+}
 
+$useremail = $_SESSION['email'];
 /*$user = "SA";
 $PW = "111#ZXC#222";
 $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
 
-$userName = 'trial';
-$target_dir = 'uploads/'.$userName.'/';
-if (!file_exists('uploads/'.$userName)) {
-    mkdir('uploads/'.$userName, 0777, true);
+$target_dir = 'uploads/'.$useremail.'/';
+if (!file_exists('uploads/'.$useremail)) {
+    mkdir('uploads/'.$useremail, 0777, true);
 }
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
