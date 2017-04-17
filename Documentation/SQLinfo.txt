@@ -116,17 +116,17 @@ UPDATE show SET VenueName = venue.VenueName FROM venue  INNER JOIN  show ON venu
 	this updates the tables to make names nice like.
 	
 CREATE TABLE FAVORITE (
-    FavID NVarChar(20) PRIMARY KEY,
 	Username NVarChar(20),
 	UserType NVarChar(5),
 	BUserName NVarChar(20),
 	VUserName NVarChar(20),
 	BandName NVarChar(60),
-	VenueName NVarChar(60)
+	VenueName NVarChar(60),
+	FavID int PRIMARY KEY AUTOINCREMENT
 );
 
-INSERT INTO FAVORITE VALUES ('K0000000000000000001', 'Gamer420', 'Band', 'Band1', NULL, 'The Firsts', NULL);
-INSERT INTO FAVORITE VALUES ('K0000000000000000002', 'SexyRobot', 'Band', 'Band2', NULL, 'The Number Twos', NULL);
-INSERT INTO FAVORITE VALUES ('K0000000000000000003', 'HungryGuy', 'Venue', NULL, 'Venue1', NULL, 'The Venue 1st');
+INSERT INTO FAVORITE VALUES ('Gamer420', 'Band', 'Band1', NULL, 'The Firsts', NULL);
+INSERT INTO FAVORITE VALUES ('SexyRobot', 'Band', 'Band2', NULL, 'The Number Twos', NULL);
+INSERT INTO FAVORITE VALUES ('HungryGuy', 'Venue', NULL, 'Venue1', NULL, 'The Venue 1st');
 
 
