@@ -135,7 +135,7 @@ if($_POST['newProfilePic'])
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Home Page</title>
+    <title>Edit Profile</title>
 		<link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../Styles/form.css" rel="stylesheet">
 		<style>
@@ -177,49 +177,80 @@ if($_POST['newProfilePic'])
 
 <div class="container">
   <!-- FORM -->
-  <div class="panel panel-default">
+<div class="panel panel-default">
  <form class="form-horizontal">
   <fieldset>
-		<div class="col-lg-12">
-		<div class="col-lg-5"><h3><?php echo $name; ?></h3>
-			</div>
-			</div>
-			<div class="col-lg-12">
-			<div class = "col-lg-10">
-        <form id = "UpdateProfile" action="upload.php" method="post">
-        <form id = "updateProfilePic"action="upload.php" method="post" enctype="multipart/form-data">
-            Update Profile Picture <br>
-            Select image to upload:
-            <input type="file" name="newProfilePic" id="newProfilePic">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8"><h3><?php echo $name; ?></h3></div>
+  </div>
+  <hr>  
+  <form id = "UpdateProfile" action="upload.php" method="post">
+    <form id = "updateProfilePic" action="upload.php" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h4 style="color:#4A4A4A">Update Profile Picture</h4>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h5 style="color:#4A4A4A">Select image to upload:</h5>
+          </div>
+      </div>  
+      <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <label class="btn btn-default" for="newProfilePic">     
+              Choose File<input type="file" name="newProfilePic" id="newProfilePic" style="display:none">
+            </label>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-          <br>
-          Description <br>
-          <div class="row">
-      			<div class="col-md-6">
-      				<textarea name="Description" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
-      			</div>
-      		</div>
-          <br>
-          Add Pictures <br>
-          <a href = "PhotoUpload.html">Click here to add pictures</a>
-          <br>
-
-          <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-			</div>
-
-		</div>
-
-
-
-
+        </div>
+      </div>
+    </form>
+  <br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4 style="color:#4A4A4A">Description</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <textarea name="Description" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h4 style="color:#4A4A4A">Add Pictures</h4>
+        </div>
+    </div> 
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <a href = "PhotoUpload.html" style="font-size: 16px">Click here to add pictures</a>
+    </div>
+  </div>
+  <br>
+  <br>
+    <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  </form>
   </fieldset>
 </form> <!-- End Form-->
  </div>
-
 </div> <!-- End Container -->
+
 
 
 

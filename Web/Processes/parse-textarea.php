@@ -118,12 +118,22 @@ if($resultType == "Band" || $resultType == "Venue")
 
 		try{
 			$q = $conn->query($sql);
-			echo "$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4]  has been created with show ID: $showID </br>";
+					echo "<div class='alert alert-dismissible alert-success'>";
+					echo	"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+					echo	"<h4>Warning!</h4>";
+					echo	"<p>$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4]  has been created with show ID: $showID";
+					echo "</div>";
+			//echo "$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4]  has been created with show ID: $showID </br>";
 
 		}
 		catch(PDOException $e)
 				{
-				echo "<span style = 'color: #ff0000'>$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was not created </span></br>";
+					echo "<div class='alert alert-dismissible alert-danger'>";
+					echo	"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+					echo	"<h4>Warning!</h4>";
+					echo	"<p>$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was unable to be created";
+					echo "</div>";
+				//echo "<span style = 'color: #ff0000'>$row_data[0], $row_data[1], $row_data[2], $row_data[3], $row_data[4] was not created </span></br>";
 				}
 		}
 
