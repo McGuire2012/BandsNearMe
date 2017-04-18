@@ -2,7 +2,7 @@
 	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
 	//test to make sure the user is logged in
 	if($_SESSION['email'] == ""){
-		header("Location: index.php");
+		header("Location: ../index.php");
 		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
@@ -19,10 +19,10 @@
 
 	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
 	//Based on user type the forms will populate differently. Based on indiv, venue, band.
-	
+
   $isAdmin = 0;
   $isPerformance = 0;
-  
+
   $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
   $q = $conn->query($sql);
   $result1 = $q->fetchAll();
@@ -33,7 +33,7 @@
     $isAdmin = 1;
     $isPerformance = 1;
   }
-  
+
   if($resultType == "Band")
   {
 	$isPerformance = 1;
@@ -44,7 +44,7 @@
 	$genre = $result[0][2];
 	$rating = $result[0][3];
 	$description = $result[0][4];
-	
+
 	//$sql = "SELECT * from USERS where UserName = '$username'";
 	//$q = $conn->query($sql);
 	//$result = $q->fetchAll();
@@ -52,7 +52,7 @@
 	//$userType = $result[0][1];
 	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
-	
+
   } else if ($resultType == "Venue")
   {
 	$isPerformance = 1;
@@ -63,7 +63,7 @@
 	$venueLoc = $result[0][2];
 	$rating = $result[0][3];
 	$description = $result[0][4];
-	
+
 	//$sql = "SELECT * from USERS where UserName = '$username'";
 	//$q = $conn->query($sql);
 	//$result = $q->fetchAll();
@@ -71,7 +71,7 @@
 	//$userType = $result[0][1];
 	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
-	
+
   } else
   {
 	//$sql = "SELECT * from USERS where UserName = '$username'";
@@ -143,21 +143,24 @@
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
-        <li><a href="home.php">Home</a></li>
-        <li><a href="about.html">About</a></li>
-		<li class="active"><a href="#">Account</a></li>
-        <li><a href="contact.html">Contact</a></li>
-		<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
+        <li><a href="../Main/home.php">Home</a></li>
+				<li class="active"><a href="AccountInfo.php">Account</a></li>
+				<li><a href="editProfile.php">Edit Profile</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="pieTest.php">Types of User</a></li>
+            <li><a href="../Processes/pie.php">Types of User</a></li>
             <li><a href="#">Traffic</a></li>
-            <li><a href="#">User Sign-Up Rate</a></li>
+            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
           </ul>
         </li>
       </ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../Main/about.html">About</a></li>
+        <li><a href="../Main/contact.html">Contact</a></li>
+      <li><a href="../Processes/logout.php">Logout</a></li>
+		</ul>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
 
@@ -282,7 +285,7 @@
 	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-	
+
 	<script>
     $(function(){
        $('indivUser').on('submit', function(e){

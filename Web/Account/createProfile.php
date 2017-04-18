@@ -2,7 +2,7 @@
 	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
 	//test to make sure the user is logged in
 	if($_SESSION['email'] == ""){
-		header("Location: index.php");
+		header("Location: ../index.php");
 		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
@@ -62,7 +62,7 @@
       $q = $conn->query($sql);
         $sql = "INSERT INTO BAND (BUserName, BandName, Genre, BRating, BDesc, NumOfRatings) Values ('$username','$bandname', '$bandGenre', '0', '$bandDescription', '0')";
         $q = $conn->query($sql);
-        header("Location: home.php");
+        header("Location: ../Main/home.php");
         die();
 
 
@@ -76,13 +76,13 @@
       $q = $conn->query($sql);
       $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings) Values ('$username','$venuename', '0', '$venueDescription', '0')";
       $q = $conn->query($sql);
-      header("Location: home.php");
+      header("Location: ../Main/home.php");
       die();
     }
     else {
       $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, StartDate, ProfilePic) Values ('$username','$password', 'Indiv','$useremail', '$todayDate', 'Styles\userIcon.jpg')";
       $q = $conn->query($sql);
-      header("Location: home.php");
+      header("Location: ../Main/home.php");
       die();
     }
 
@@ -129,11 +129,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="logout.php">BandsNearMe</a>
+      <a class="navbar-brand" href="../Processes/logout.php">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php">Cancel</a></li>
+        <li><a href="../Processes/logout.php">Cancel</a></li>
       </ul>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
