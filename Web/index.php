@@ -42,7 +42,7 @@ if($_POST['passwords'])
 
     $passwordRight = "<br>you got email and password right!";
     //redirect to home page now.
-    header("Location: home.php");
+    header("Location: Main/home.php");
     die();
   }
   else {
@@ -73,7 +73,7 @@ if($_POST['repeatPasswords'])
           $_SESSION['passwords']=$password;
           $emailError = "<br>New Account CREATED!";
           //redirect to account creation page.
-          header("Location: createProfile.php");
+          header("Location: Account/createProfile.php");
           die();
           ;
         }
