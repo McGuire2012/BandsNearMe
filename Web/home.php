@@ -151,14 +151,56 @@
 			<div class="col-lg-12">
 			<div class = "col-lg-10">
 				<h4>Photos</h4>
-				<p>PUT ALL YOUR PICTURES HERE</p>
+				<p><?php
+				$directory = "uploads/$useremail"."/";
+				$images = glob($directory."*.*");
+				if($images[0] == null)
+				{
+					echo "You current have no photos uploaded.";
+				}
+				else {
+					foreach ($images as $image) {
+						echo '<img style=" float:left; display:inline" src = "'.$image.'" class = "thumbnail" width ="150" height = "150" />';
+					}
+				}
+
+				?>
+				</p>
 
 			</div>
 			<?php echo $Vdesc;?>
 			<?php echo $Bdesc;?>
 			<div class = "col-lg-10">
 				<h4>Favorites</h4>
-				<p>I LIKE TORTLES </p>
+				<p><?php
+				$sql = "SELECT Count(Username) from Favorite where UserName = '$username'";
+			  $q = $conn->query($sql);
+			  $result = $q->fetchAll();
+			  $resultCount = $result[0][0];
+				if($resultCount > 0)
+				{
+					$sql = "SELECT BUserName, VUserName from Favorite where UserName = '$username'";
+				  $q = $conn->query($sql);
+				  $result = $q->fetchAll();
+					for($i =0; $i<$resultCount; $i++)
+					{
+						if($result[i][0]!= null)
+						{
+							$bandResult = $result[i][0];
+							echo "You liked the band: $bandResult<br>";
+						}
+						else {
+							$venueResult = $result[i][1];
+							echo "You liked the band: $venueResult<br>";
+						}
+					}
+
+				}
+				else
+				{
+					echo "<p>You have no favorite. Go like some venue and bands!!</p>";
+				}
+				?> </p>
 			</div>
 		</div>
 
