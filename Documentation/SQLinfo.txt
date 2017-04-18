@@ -24,86 +24,157 @@ CREATE TABLE USERS (
 	UserPW NVarChar(20),
 	UserType NVarChar(5),
 	UserEmail NVarChar(30),
+	StartDate Date,
 	VenueName NVarChar(60),
 	BandName NVarChar(60)
 );
 
-INSERT INTO USERS VALUES ('LindseyJ','n00972410','Admin','n00972410@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SchummJ','n00959880','Admin','n00959880@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('PalmerM','n00449190','Admin','n00449190@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SnyderR','n00665157','Admin','n00665157@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('FahadA','n01048046','Admin','n01048046@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('McQuireS','n00840585','Admin','n00840585@ospreys.unf.edu',NULL,NULL);
-INSERT INTO USERS VALUES ('SantilliT','n00955820','Admin','n00972410@ospreys.unf.edu',NULL,NULL);
+INSERT INTO USERS VALUES ('LindseyJ','n00972410','Admin','n00972410@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SchummJ','n00959880','Admin','n00959880@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('PalmerM','n00449190','Admin','n00449190@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SnyderR','n00665157','Admin','n00665157@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('FahadA','n01048046','Admin','n01048046@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('McQuireS','n00840585','Admin','n00840585@ospreys.unf.edu','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('SantilliT','n00955820','Admin','n00972410@ospreys.unf.edu','2017-03-28',NULL,NULL);
 
-INSERT INTO USERS VALUES ('Gamer420','D13N00B5','Indiv','Gamer420@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('SexyRobot','0110110','Indiv','SexyRobot@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('HungryGuy','OMGimstarving','Indiv','HungryGuy@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('TitsMcGee','imwstoopid','Indiv','TitsMcGee@gmail.com',NULL,NULL);
-INSERT INTO USERS VALUES ('Goldfish','delitcious','Indiv','Goldfish@gmail.com',NULL,NULL);
+INSERT INTO USERS VALUES ('Gamer420','D13N00B5','Indiv','Gamer420@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('SexyRobot','0110110','Indiv','SexyRobot@gmail.com','2017-03-28',NULL,NULL);
+INSERT INTO USERS VALUES ('HungryGuy','OMGimstarving','Indiv','HungryGuy@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('TitsMcGee','imwstoopid','Indiv','TitsMcGee@gmail.com','2017-03-29',NULL,NULL);
+INSERT INTO USERS VALUES ('Goldfish','delitcious','Indiv','Goldfish@gmail.com','2017-03-29',NULL,NULL);
 
-INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com',NULL,'The Firsts');
-INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com',NULL,'The Number Twos');
-INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com',NULL,'333');
-INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com',NULL,'4th Place');
-INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com',NULL,'High 5s');
+INSERT INTO USERS VALUES ('Band1','Band1PW','Band','Band1@gmail.com','2017-03-30',NULL,'The Firsts');
+INSERT INTO USERS VALUES ('Band2','Band2PW','Band','Band2@gmail.com','2017-03-29',NULL,'The Number Twos');
+INSERT INTO USERS VALUES ('Band3','Band3PW','Band','Band3@gmail.com','2017-03-30',NULL,'333');
+INSERT INTO USERS VALUES ('Band4','Band4PW','Band','Band4@gmail.com','2017-04-01',NULL,'4th Place');
+INSERT INTO USERS VALUES ('Band5','Band5PW','Band','Band5@gmail.com','2017-04-01',NULL,'High 5s');
 
-INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','The Venue 1st',NULL);
-INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','The Venue 2nd',NULL);
-INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','The Venue 3rd',NULL);
-INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','The Venue 4th',NULL);
-INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','The Venue 5th',NULL);
+INSERT INTO USERS VALUES ('Venue1','Venue1PW','Venue','Venue1@gmail.com','2017-04-01','The Venue 1st',NULL);
+INSERT INTO USERS VALUES ('Venue2','Venue2PW','Venue','Venue2@gmail.com','2017-04-02','The Venue 2nd',NULL);
+INSERT INTO USERS VALUES ('Venue3','Venue3PW','Venue','Venue3@gmail.com','2017-03-30','The Venue 3rd',NULL);
+INSERT INTO USERS VALUES ('Venue4','Venue4PW','Venue','Venue4@gmail.com','2017-04-01','The Venue 4th',NULL);
+INSERT INTO USERS VALUES ('Venue5','Venue5PW','Venue','Venue5@gmail.com','2017-03-30','The Venue 5th',NULL);
 
 CREATE TABLE VENUE (
 	VUserName NVarChar(20) PRIMARY KEY,
     	VenueName NVarChar(60),
 	VenueLoc NVarChar(200),
 	VRating Numeric(2,1),
-	VDesc NVarChar(max)
+	VDesc NVarChar(max),
+	NumOfRatings Numeric(6,0)
 );
 
-INSERT INTO VENUE VALUES ('Venue1','The Venue 1st','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue1 IS THE BEST Venue');
-INSERT INTO VENUE VALUES ('Venue2','The Venue 2nd','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue2 IS THE ALMOST THE BEST Venue');
-INSERT INTO VENUE VALUES ('Venue3','The Venue 3rd','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue3 IS FINE');
-INSERT INTO VENUE VALUES ('Venue4','The Venue 4th','UPDATEWITHGOOGLELOCATIONKEYS',0,'AT LEAST Venue4 ISNT Venue5');
-INSERT INTO VENUE VALUES ('Venue5','The Venue 5th','UPDATEWITHGOOGLELOCATIONKEYS',0,'WHELP...');
+INSERT INTO VENUE VALUES ('Venue1','The Venue 1st','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue1 IS THE BEST Venue', 2);
+INSERT INTO VENUE VALUES ('Venue2','The Venue 2nd','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue2 IS THE ALMOST THE BEST Venue', 4);
+INSERT INTO VENUE VALUES ('Venue3','The Venue 3rd','UPDATEWITHGOOGLELOCATIONKEYS',0,'Venue3 IS FINE', 1);
+INSERT INTO VENUE VALUES ('Venue4','The Venue 4th','UPDATEWITHGOOGLELOCATIONKEYS',0,'AT LEAST Venue4 ISNT Venue5', 2);
+INSERT INTO VENUE VALUES ('Venue5','The Venue 5th','UPDATEWITHGOOGLELOCATIONKEYS',0,'WHELP...', 3);
 
 CREATE TABLE BAND (
 	BUserName NVarChar(20) PRIMARY KEY,
     	BandName NVarChar(60),
-	Genre NVarChar(10),
-	VRating Numeric(2,1),
-	VDesc NVarChar(max)
+	Genre NVarChar(30),
+	BRating Numeric(2,1),
+	BDesc NVarChar(max),
+	NumOfRatings Numeric(6,0)
 );
 
-INSERT INTO BAND VALUES ('Band1','The Firsts','Rock',5,'BAND1 IS THE BEST BAND');
-INSERT INTO BAND VALUES ('Band2','The Number Twos','Electronic',4,'BAND2 IS THE ALMOST THE BEST BAND');
-INSERT INTO BAND VALUES ('Band3','333','Jazz',3,'BAND3 IS FINE');
-INSERT INTO BAND VALUES ('Band4','4th Place','Classical',2,'AT LEAST BAND4 ISNT BAND5');
-INSERT INTO BAND VALUES ('Band5','High 5s','New Age',1,'WHELP...');
+INSERT INTO BAND VALUES ('Band1','The Firsts','Rock',5,'BAND1 IS THE BEST BAND', 1);
+INSERT INTO BAND VALUES ('Band2','The Number Twos','Electronic',4,'BAND2 IS THE ALMOST THE BEST BAND', 2);
+INSERT INTO BAND VALUES ('Band3','333','Jazz',3,'BAND3 IS FINE', 4);
+INSERT INTO BAND VALUES ('Band4','4th Place','Classical',2,'AT LEAST BAND4 ISNT BAND5', 1);
+INSERT INTO BAND VALUES ('Band5','High 5s','New Age',1,'WHELP...', 2);
 
 CREATE TABLE SHOW (
     ShowID NVarChar(14) PRIMARY KEY,
-	BandName NVarChar(60),
-	VenueName NVarChar(60),
+	BUserName NVarChar(60),
+	VUserName NVarChar(60),
 	SDesc NVarChar(max),
 	VenueLoc NVarChar(200),
 	ShowDate Date,
-	ShowTime Time(0)
+	ShowTime Time(0),
+	BandName NVarChar(60),
+	VenueName NVarChar(60),
+	VAddress NVarChar(300)
 );
 
-INSERT INTO SHOW VALUES ('S0000000000001','Band1','Venue5','Shows are cool. 15','UPDATEWITHGOOGLELOCKEYS','2017-04-28','20:30:00');
-INSERT INTO SHOW VALUES ('S0000000000002','Band2','Venue4','Shows are cool. 24','UPDATEWITHGOOGLELOCKEYS','2017-04-29','19:00:00');
-INSERT INTO SHOW VALUES ('S0000000000003','Band3','Venue3','Shows are cool. 33','UPDATEWITHGOOGLELOCKEYS','2017-04-28','22:00:00');
-INSERT INTO SHOW VALUES ('S0000000000004','Band4','Venue2','Shows are cool. 42','UPDATEWITHGOOGLELOCKEYS','2017-04-30','20:45:00');
-INSERT INTO SHOW VALUES ('S0000000000005','Band5','Venue1','Shows are cool. 51','UPDATEWITHGOOGLELOCKEYS','2017-04-29','20:30:00');
-INSERT INTO SHOW VALUES ('S0000000000006','Band5','Venue5','Shows are cool. 55','UPDATEWITHGOOGLELOCKEYS','2017-04-28','21:30:00');
-INSERT INTO SHOW VALUES ('S0000000000007','Band4','Venue4','Shows are cool. 44','UPDATEWITHGOOGLELOCKEYS','2017-04-29','20:00:00');
-INSERT INTO SHOW VALUES ('S0000000000008','Band2','Venue3','Shows are cool. 23','UPDATEWITHGOOGLELOCKEYS','2017-04-28','21:30:00');
-INSERT INTO SHOW VALUES ('S0000000000009','Band3','Venue2','Shows are cool. 32','UPDATEWITHGOOGLELOCKEYS','2017-04-28','20:45:00');
-INSERT INTO SHOW VALUES ('S0000000000010','Band1','Venue1','Shows are cool. 11','UPDATEWITHGOOGLELOCKEYS','2017-04-29','21:30:00');
+INSERT INTO SHOW VALUES ('S0000000000001','Band1','Venue5','Shows are cool. 15','UPDATEWITHGOOGLELOCKEYS','2017-04-28','20:30:00','The Firsts', 'The Venue 5th');
+INSERT INTO SHOW VALUES ('S0000000000002','Band2','Venue4','Shows are cool. 24','UPDATEWITHGOOGLELOCKEYS','2017-04-29','19:00:00','The Number Twos', 'The Venue 4th');
+INSERT INTO SHOW VALUES ('S0000000000003','Band3','Venue3','Shows are cool. 33','UPDATEWITHGOOGLELOCKEYS','2017-04-28','22:00:00','333', 'The Venue 3rd');
+INSERT INTO SHOW VALUES ('S0000000000004','Band4','Venue2','Shows are cool. 42','UPDATEWITHGOOGLELOCKEYS','2017-04-30','20:45:00','4th Place', 'The Venue 2nd');
+INSERT INTO SHOW VALUES ('S0000000000005','Band5','Venue1','Shows are cool. 51','UPDATEWITHGOOGLELOCKEYS','2017-04-29','20:30:00','High 5s', 'The Venue 1st');
+INSERT INTO SHOW VALUES ('S0000000000006','Band5','Venue5','Shows are cool. 55','UPDATEWITHGOOGLELOCKEYS','2017-04-28','21:30:00','High 5s', 'The Venue 5th');
+INSERT INTO SHOW VALUES ('S0000000000007','Band4','Venue4','Shows are cool. 44','UPDATEWITHGOOGLELOCKEYS','2017-04-29','20:00:00','4th Place', 'The Venue 4th');
+INSERT INTO SHOW VALUES ('S0000000000008','Band2','Venue3','Shows are cool. 23','UPDATEWITHGOOGLELOCKEYS','2017-04-28','21:30:00','The Number Twos', 'The Venue 3rd');
+INSERT INTO SHOW VALUES ('S0000000000009','Band3','Venue2','Shows are cool. 32','UPDATEWITHGOOGLELOCKEYS','2017-04-28','20:45:00','333', 'The Venue 2nd');
+INSERT INTO SHOW VALUES ('S0000000000010','Band1','Venue1','Shows are cool. 11','UPDATEWITHGOOGLELOCKEYS','2017-04-29','21:30:00','The Firsts', 'The Venue 1st');
+
 
 SELECT * FROM BAND;
 SELECT * FROM USERS;
 SELECT * FROM VENUE;
 SELECT * FROM SHOW;
+
+UPDATE show SET VenueName = venue.VenueName FROM venue  INNER JOIN  show ON venue.VUserName = show.VUserName;
+	this updates the tables to make names nice like.
+	
+CREATE TABLE FAVORITE (
+	Username NVarChar(20),
+	UserType NVarChar(5),
+	BUserName NVarChar(20),
+	VUserName NVarChar(20),
+	BandName NVarChar(60),
+	VenueName NVarChar(60),
+	FavID int PRIMARY KEY AUTOINCREMENT
+);
+
+INSERT INTO FAVORITE VALUES ('Gamer420', 'Band', 'Band1', NULL, 'The Firsts', NULL);
+INSERT INTO FAVORITE VALUES ('SexyRobot', 'Band', 'Band2', NULL, 'The Number Twos', NULL);
+INSERT INTO FAVORITE VALUES ('HungryGuy', 'Venue', NULL, 'Venue1', NULL, 'The Venue 1st');
+
+UPDATE SHOW
+SET VAddress = '567 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue5';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '456 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue4';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '345 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue3';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '234 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue2';
+SELECT * FROM SHOW;
+
+UPDATE SHOW
+SET VAddress = '123 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue1';
+SELECT * FROM SHOW;
+
+UPDATE VENUE
+SET VAddress = '567 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue5';
+
+UPDATE VENUE
+SET VAddress = '456 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue4';
+
+UPDATE VENUE
+SET VAddress = '345 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue3';
+
+UPDATE VENUE
+SET VAddress = '234 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue2';
+
+UPDATE VENUE
+SET VAddress = '123 Main St. Jacksonville, FL 32225'
+WHERE VUserName = 'Venue1';
+SELECT * FROM VENUE;
+
