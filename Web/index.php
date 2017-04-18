@@ -23,10 +23,10 @@ if($_POST['emails'])
         if($resultCount == "1")
         {
 
-          $email = "<br>You have a correct email for login.";
+          $email = "<br><p class='text-success'>You have a correct email for login.</p>";
         }
         else {
-          $email = "<br>not such email on file.";
+          $email = "<br><p class='text-danger'>no such email on file.</p>";
         }
 }
 
@@ -43,13 +43,13 @@ if($_POST['passwords'])
   if($resultPass == $password)
   {
 
-    $passwordRight = "<br>you got email and password right!";
+    $passwordRight = "<br><p class='text-success'>you got email and password right!</p>";
     //redirect to home page now.
     header("Location: home.php");
     die();
   }
   else {
-    $passwordRight = "<br>Wrong password Bitch!";
+    $passwordRight = "<br><p class='text-danger'>Wrong password Bitch!</p>";
   }
 }
 
@@ -58,24 +58,24 @@ if($_POST['repeatPasswords'])
   if($resultCount == "1")
   {
 
-    $emailError = "<br>Email is already on file. Either login or use a different email.";
+    $emailError = "<br><p class='text-danger'>Email is already on file. Either login or use a different email.</p>";
   }
   $repeatPassword = $_POST['repeatPasswords'];
   //echo "$repeatPassword</br>";
     if($password != $repeatPassword)
       {
         $accountCreate = "<script>$(function() { $('#acctCreationModal').modal('show'); });</script>";
-        $passError = "<br>you done fucked up kid. use the same passwords dumbass.";
+        $passError = "<br><p class='text-danger'>you done fucked up kid. use the same passwords dumbass.</p>";
       }
       else {
         if($resultCount == "1")
         {
           $accountCreate = "<script>$(function() { $('#acctCreationModal').modal('show'); });</script>";
-          $emailError = "<br>Email is already on file. Either login or use a different email.";
+          $emailError = "<br><p class='text-danger'>Email is already on file. Either login or use a different email.</p>";
         }
         else {
           $_SESSION['passwords']=$password;
-          $emailError = "<br>New Account CREATED!";
+          $emailError = "<br><p class='text-success'>New Account CREATED!</p>";
           //redirect to account creation page.
           header("Location: createProfile.php");
           die();
