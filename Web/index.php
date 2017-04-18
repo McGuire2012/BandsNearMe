@@ -10,6 +10,9 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if($_POST['emails'])
 {
+  $emailGood = "<script>$(function() { $('#loginModal').modal('show'); });</script>";
+
+
   $user=$_POST['emails'];
   $_SESSION['email'] = $user;
         $sql = "SELECT count(UserEmail) from USERS where UserEmail = '$user'";
@@ -61,12 +64,13 @@ if($_POST['repeatPasswords'])
   //echo "$repeatPassword</br>";
     if($password != $repeatPassword)
       {
+        $accountCreate = "<script>$(function() { $('#acctCreationModal').modal('show'); });</script>";
         $passError = "<br>you done fucked up kid. use the same passwords dumbass.";
       }
       else {
         if($resultCount == "1")
         {
-
+          $accountCreate = "<script>$(function() { $('#acctCreationModal').modal('show'); });</script>";
           $emailError = "<br>Email is already on file. Either login or use a different email.";
         }
         else {
@@ -247,11 +251,11 @@ if($_POST['repeatPasswords'])
               e.preventDefault();
               $.ajax({
                   type: "POST",
-                  data: $("login-form").serialize(),
-
+                  data: $("login-form").serialize();
               });
          });
       });
+
   </script>
   <script>
       $(function(){
@@ -259,12 +263,15 @@ if($_POST['repeatPasswords'])
               e.preventDefault();
               $.ajax({
                   type: "POST",
-                  data: $("create-form").serialize(),
-                  $('#acctCreationModal').modal('show');
-
+                  data: $("create-form").serialize();
+                  $(function() { $('#acctCreationModal').modal('show'); });
               });
          });
       });
+
+
   </script>
+
+<?php echo $emailGood; echo $accountCreate;?>
 </body>
 </html>
