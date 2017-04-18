@@ -98,8 +98,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Home Page</title>
-    <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="Styles/form.css" rel="stylesheet">
+		<link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../Styles/form.css" rel="stylesheet">
 		<style>
 		img	{}
 		</style>
