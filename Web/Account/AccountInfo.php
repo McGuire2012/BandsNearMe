@@ -25,8 +25,8 @@
   
   $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
   $q = $conn->query($sql);
-  $result = $q->fetchAll();
-  $resultType = $result[0][0];
+  $result1 = $q->fetchAll();
+  $resultType = $result1[0][0];
 
   if($resultType == "Admin")
   {
@@ -200,7 +200,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $useremail; ?>">
+        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail; ?>">
       </div>
     </div>
     <div class="form-group">
@@ -218,7 +218,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea" style="color: #474747"><?php echo $description; ?></textarea>
+        <textarea class="form-control" rows="3" id="textArea" style="color: #474747" value="<?php echo $description; ?>"></textarea>
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </div>
     </div>
@@ -237,25 +237,25 @@
             Rap
           </label>
         </div>
-		<div class="radio">
+		    <div class="radio">
           <label>
             <input type="radio" name="optionsRadios" id="optionsRadios3" value="Blues">
             Blues
           </label>
         </div>
-		<div class="radio">
+		    <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios4" value="Rock / Alternative-Rock">
-            Rock / Alternative-Rock
+            <input type="radio" name="optionsRadios" id="optionsRadios4" value="Rock">
+            Rock
           </label>
         </div>
-		<div class="radio">
+		    <div class="radio">
           <label>
             <input type="radio" name="optionsRadios" id="optionsRadios5" value="Pop">
             Pop
           </label>
         </div>
-		<div class="radio">
+		    <div class="radio">
           <label>
             <input type="radio" name="optionsRadios" id="optionsRadios6" value="Indie">
             Indie
