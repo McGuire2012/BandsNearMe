@@ -141,8 +141,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Types of Users</title>
-    <link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="../Styles/form.css" rel="stylesheet">
+    <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="Styles/form.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});

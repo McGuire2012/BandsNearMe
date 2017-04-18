@@ -40,8 +40,6 @@ if($resultType == "Band" || $resultType == "Venue")
 <html>
 <head>
 <title>Parse Textarea</title>
-<link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="../Styles/form.css" rel="stylesheet">
 <meta charset="utf-8">
 </head>
 <body>
