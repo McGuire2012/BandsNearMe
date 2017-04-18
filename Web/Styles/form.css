@@ -10,6 +10,9 @@ body {
   padding-top: 50px;
   background-color: #EBEBEB; 
 }
+text-area{
+	color: #bbb;
+}
 .btn-file {
     position: relative;
     overflow: hidden;

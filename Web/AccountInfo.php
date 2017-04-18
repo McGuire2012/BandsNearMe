@@ -7,7 +7,7 @@
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
 	$useremail = $_SESSION['email'];
-    $password = $_SESSION['passwords'];
+  $password = $_SESSION['passwords'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
 	$user = "SA";
@@ -27,7 +27,7 @@
   $q = $conn->query($sql);
   $result = $q->fetchAll();
   $resultType = $result[0][0];
-  
+
   if($resultType == "Admin")
   {
     $isAdmin = 1;
@@ -37,20 +37,20 @@
   if($resultType == "Band")
   {
 	$isPerformance = 1;
-    $sql = "SELECT * from BANDS where BUserName = '$username'";
+  $sql = "SELECT * from BAND where BUserName = '$username'";
 	$q = $conn->query($sql);
 	$result = $q->fetchAll();
-	$bandName = $result[0][0];
-	$genre = $result[0][1];
-	$rating = $result[0][2];
-	$description = $result[0][3];
+	$bandName = $result[0][1];
+	$genre = $result[0][2];
+	$rating = $result[0][3];
+	$description = $result[0][4];
 	
-	$sql = "SELECT * from USERS where UserName = '$username'";
-	$q = $conn->query($sql);
-	$result = $q->fetchAll();
-	$password = $result[0][0];
+	//$sql = "SELECT * from USERS where UserName = '$username'";
+	//$q = $conn->query($sql);
+	//$result = $q->fetchAll();
+	//$password = $result[0][0];
 	//$userType = $result[0][1];
-	$userEmail = $result[0][2];
+	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
 	
   } else if ($resultType == "Venue")
@@ -59,27 +59,27 @@
 	$sql = "SELECT * from VENUE where VUserName = '$username'";
 	$q = $conn->query($sql);
 	$result = $q->fetchAll();
-	$venueName = $result[0][0];
-	$venueLoc = $result[0][1];
-	$rating = $result[0][2];
-	$description = $result[0][3];
+	$venueName = $result[0][1];
+	$venueLoc = $result[0][2];
+	$rating = $result[0][3];
+	$description = $result[0][4];
 	
-	$sql = "SELECT * from USERS where UserName = '$username'";
-	$q = $conn->query($sql);
-	$result = $q->fetchAll();
-	$password = $result[0][0];
+	//$sql = "SELECT * from USERS where UserName = '$username'";
+	//$q = $conn->query($sql);
+	//$result = $q->fetchAll();
+	//$password = $result[0][0];
 	//$userType = $result[0][1];
-	$userEmail = $result[0][2];
+	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
 	
   } else
   {
-	$sql = "SELECT * from USERS where UserName = '$username'";
-	$q = $conn->query($sql);
-	$result = $q->fetchAll();
-	$password = $result[0][0];
+	//$sql = "SELECT * from USERS where UserName = '$username'";
+	//$q = $conn->query($sql);
+	//$result = $q->fetchAll();
+	//$password = $result[0][0];
 	//$userType = $result[0][1];
-	$userEmail = $result[0][2];
+	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
   }
 
@@ -98,7 +98,7 @@
 	<!-- Javascript here please -->
 	<script>
 	function getUserType(){
-		var userType = "<?php echo $resultType ?>";
+		var userType = "<?php echo $resultType; ?>";
 		if(userType == "Band" )
 		{
 			doBand();
@@ -164,15 +164,15 @@
 
 <div class="container">
 
-<!----------------- Indiv User --------------------->
-<!-------------------  FORM  ----------------------->
+<!-- Indiv User -->
+<!--  FORM  -->
 <div class="panel panel-default">
  <form class="form-horizontal" id="indivUser" action="" method="post" style="display:none;">
   <fieldset>
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $userEmail ?>">
+        <input type="email" class="form-control" id="inputEmail" placeholder=""><?php echo $userEmail; ?>
       </div>
     </div>
     <div class="form-group">
@@ -192,15 +192,21 @@
  </form> <!-- End Form-->
 </div>
 
-<!----------------- BANDS --------------------->
-<!----------------  FORM  --------------------->
+<!-- BANDS -->
+<!--  FORM -->
 <div class="panel panel-default">
  <form class="form-horizontal" id="BUser" action="" method="post" style="display:none;">
   <fieldset>
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $userEmail ?>">
+        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $useremail; ?>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
       </div>
     </div>
     <div class="form-group">
@@ -212,7 +218,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"><?php echo $description ?></textarea>
+        <textarea class="form-control" rows="3" id="textArea" style="color: #474747"><?php echo $description; ?></textarea>
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </div>
     </div>
@@ -221,8 +227,8 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="<?php echo $genre ?>" checked="">
-            <?php echo $genre ?>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="<?php echo $genre; ?>" checked="">
+            <?php echo $genre; ?>
           </label>
         </div>
         <div class="radio">
@@ -267,8 +273,8 @@
  </form> <!-- End Form-->
 </div>
 
-<!----------------- VENUES --------------------->
-<!------------------ FORM  --------------------->
+<!-- VENUES -->
+<!-- FORM  -->
 
 </div> <!-- End Container -->
 

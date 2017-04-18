@@ -116,6 +116,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="home.php">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="accountinfo.php">Account</a></li>
         <li><a href="contact.html">Contact</a></li>
 				<li><a href="uploadEvents.html" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Book Performance</a></li>
 
