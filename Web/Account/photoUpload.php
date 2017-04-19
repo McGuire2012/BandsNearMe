@@ -6,14 +6,18 @@ if($_SESSION['email'] == ""){
 }
 
 $useremail = $_SESSION['email'];
-/*$user = "SA";
+$user = "SA";
 $PW = "111#ZXC#222";
 $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
 // set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if($_FILES['fileToUpload'])
+if (empty($_FILES['fileToUpload']['name'])) {
+;
+}
+else
 {
+
 $target_dir = '../uploads/'.$useremail.'/';
 if (!file_exists('../uploads/'.$useremail)) {
     mkdir('../uploads/'.$useremail, 0777, true);
@@ -60,9 +64,12 @@ if ($uploadOk == 0) {
 }
 
 
-
-if($_FILES['newProfilePic'])
+if (empty($_FILES['newProfilePic']['name'])) {
+  ;
+}
+else
 {
+
 	$profilepicError = "<br>Mama we made it!";
   $target_dir = '../uploads/'.$useremail.'/profilePicture'.'/';
   if (!file_exists('../uploads/'.$useremail)) {
@@ -103,7 +110,7 @@ if($_FILES['newProfilePic'])
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES["newProfilePic"]["tmp_name"], $target_file)) {
-        $sql = "update users set profilePic ='$target_file' where UserEmail = '$useremail'";
+        $sql = "update users set profilePic ='../uploads/$useremail/profilePicture/".$_FILES["newProfilePic"]["name"]."' where UserEmail = '$useremail'";
       	$q = $conn->query($sql);
           $profilepicError = "<br>The file ". basename( $_FILES["newProfilePic"]["name"]). " has been uploaded.";
       } else {
