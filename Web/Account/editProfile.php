@@ -65,8 +65,11 @@
 			$name = $resultName;
 		}
   }
+
+
 if($_POST['newProfilePic'])
 {
+	$profilepicError = "<br>Mama we made it!";
   $target_dir = '../uploads/'.$useremail.'/profilePicture'.'/';
   if (!file_exists('../uploads/'.$useremail)) {
       mkdir('../uploads/'.$useremail, 0777, true);
@@ -180,8 +183,7 @@ if($_POST['newProfilePic'])
     <div class="col-md-8"><h3><?php echo $name; ?></h3></div>
   </div>
   <hr>
-  <form id = "UpdateProfile" action="../Processes/upload.php" method="post">
-    <form id = "updateProfilePic" action="../Processes/upload.php" method="post" enctype="multipart/form-data">
+  <form id = "UpdateProfile" action="" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -200,10 +202,9 @@ if($_POST['newProfilePic'])
       <label class="btn btn-default" for="newProfilePic">
               Choose File<input type="file" name="newProfilePic" id="newProfilePic" style="display:none">
             </label>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
-    </form>
+
 		<?php echo $profilepicError;?>
   <br>
   <div class="row">
