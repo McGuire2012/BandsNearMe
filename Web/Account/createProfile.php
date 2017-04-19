@@ -73,11 +73,10 @@
       $venuename = $_POST['venueName'];
       $VenueDescription = $_POST['VenueDesc'];
 			$VenueAddress = $_POST['VAddress'];
-			$VenueLat = $_POST['VLat'];
-			$VenueLong = $_POST['VLong'];
+
       $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, VenueName, StartDate, ProfilePic) Values ('$username','$password', 'Venue','$useremail', '$venuename', '$todayDate', '..\Styles\venueIcon.jpg')";
       $q = $conn->query($sql);
-      $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings, VAddress, VLat, VLong) Values ('$username','$venuename', '0', '$venueDescription', '0', '$VAddress', '$VLat', '$VLong')";
+      $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings, VAddress) Values ('$username','$venuename', '0', '$venueDescription', '0', '$VAddress')";
       $q = $conn->query($sql);
       header("Location: ../Main/home.php");
       die();
@@ -216,10 +215,10 @@
         <input type="text" name="VAddress">
         <br>
 				Location Latitude <br>
-        <input type="text" name="VLat">
+        <input type="text" name="VLat" readonly="">
         <br>
 				Location Longitude <br>
-        <input type="text" name="VLong">
+        <input type="text" name="VLong" readonly="">
         <br>
         <div class="row">
 
