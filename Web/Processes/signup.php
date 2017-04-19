@@ -148,11 +148,11 @@ if($resultType == "Admin")
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
      <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="home.php">BandsNearMe</a>
+      <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
     </div>
 		<div class="collapse navbar-collapse" style="background-color:#2C2929">
       <ul class="nav navbar-nav">
-        <li><a href="home.php">Home</a></li>
+        <li><a href="../Main/home.php">Home</a></li>
 				<li><a href="../Account/AccountInfo.php">Account</a></li>
 				<li><a href="../Account/editProfile.php">Edit Profile</a></li>
         <li class="dropdown">

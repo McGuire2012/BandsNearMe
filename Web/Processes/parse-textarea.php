@@ -53,7 +53,7 @@ if($resultType == "Band" || $resultType == "Venue")
 	<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
 			 <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-				<a class="navbar-brand" href="home.php">BandsNearMe</a>
+				<a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
 			</div>
 			<div class="collapse navbar-collapse" style="background-color:#2C2929">
 				<ul class="nav navbar-nav">

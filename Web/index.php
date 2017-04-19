@@ -45,7 +45,7 @@ if($_POST['passwords'])
 
     $passwordRight = "<br><p class='text-success'>you got email and password right!</p>";
     //redirect to home page now.
-    header("Location: home.php");
+    header("Location: Main/home.php");
     die();
   }
   else {

@@ -58,7 +58,7 @@
       $bandname = $_POST['BandName'];
       $bandDescription = $_POST['BandDesc'];
       $bandGenre = $_POST['Genre'];
-      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, BandName, StartDate, ProfilePic) Values ('$username','$password', 'Band','$useremail', '$bandname', '$todayDate', 'Styles\bandIcon.jpg')";
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, BandName, StartDate, ProfilePic) Values ('$username','$password', 'Band','$useremail', '$bandname', '$todayDate', '..\Styles\bandIcon.jpg')";
       $q = $conn->query($sql);
         $sql = "INSERT INTO BAND (BUserName, BandName, Genre, BRating, BDesc, NumOfRatings) Values ('$username','$bandname', '$bandGenre', '0', '$bandDescription', '0')";
         $q = $conn->query($sql);
@@ -72,7 +72,7 @@
     elseif ($_POST['VenueName']) {
       $venuename = $_POST['venueName'];
       $VenueDescription = $_POST['VenueDesc'];
-      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, VenueName, StartDate, ProfilePic) Values ('$username','$password', 'Venue','$useremail', '$venuename', '$todayDate', 'Styles\venueIcon.jpg')";
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, VenueName, StartDate, ProfilePic) Values ('$username','$password', 'Venue','$useremail', '$venuename', '$todayDate', '..\Styles\venueIcon.jpg')";
       $q = $conn->query($sql);
       $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings) Values ('$username','$venuename', '0', '$venueDescription', '0')";
       $q = $conn->query($sql);
@@ -80,7 +80,7 @@
       die();
     }
     else {
-      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, StartDate, ProfilePic) Values ('$username','$password', 'Indiv','$useremail', '$todayDate', 'Styles\userIcon.jpg')";
+      $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, StartDate, ProfilePic) Values ('$username','$password', 'Indiv','$useremail', '$todayDate', '..\Styles\userIcon.jpg')";
       $q = $conn->query($sql);
       header("Location: ../Main/home.php");
       die();
@@ -128,7 +128,7 @@
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="../Processes/logout.php">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">

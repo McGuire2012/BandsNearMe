@@ -68,12 +68,12 @@
 if($_POST['newProfilePic'])
 {
   echo "fuck this shit";
-  $target_dir = 'uploads/'.$useremail.'/profilePicture'.'/';
-  if (!file_exists('uploads/'.$useremail)) {
-      mkdir('uploads/'.$useremail, 0777, true);
+  $target_dir = '../uploads/'.$useremail.'/profilePicture'.'/';
+  if (!file_exists('../uploads/'.$useremail)) {
+      mkdir('../uploads/'.$useremail, 0777, true);
   }
-  if (!file_exists('uploads/'.$useremail.'/profilePicture')) {
-      mkdir('uploads/'.$useremail.'/profilePicture', 0777, true);
+  if (!file_exists('../uploads/'.$useremail.'/profilePicture')) {
+      mkdir('../uploads/'.$useremail.'/profilePicture', 0777, true);
   }
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $uploadOk = 1;
@@ -147,8 +147,8 @@ if($_POST['newProfilePic'])
 		<!--Top & SideNavBar -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 		    <div class="navbar-header">
-		     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-		      <a class="navbar-brand" href="home.php">BandsNearMe</a>
+		     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
+		      <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
 		    </div>
 				<div class="collapse navbar-collapse" style="background-color:#2C2929">
 		      <ul class="nav navbar-nav">
@@ -184,7 +184,7 @@ if($_POST['newProfilePic'])
     <div class="col-md-2"></div>
     <div class="col-md-8"><h3><?php echo $name; ?></h3></div>
   </div>
-  <hr>  
+  <hr>
   <form id = "UpdateProfile" action="upload.php" method="post">
     <form id = "updateProfilePic" action="upload.php" method="post" enctype="multipart/form-data">
       <div class="row">
@@ -198,11 +198,11 @@ if($_POST['newProfilePic'])
           <div class="col-md-4">
             <h5 style="color:#4A4A4A">Select image to upload:</h5>
           </div>
-      </div>  
+      </div>
       <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <label class="btn btn-default" for="newProfilePic">     
+      <label class="btn btn-default" for="newProfilePic">
               Choose File<input type="file" name="newProfilePic" id="newProfilePic" style="display:none">
             </label>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -228,7 +228,7 @@ if($_POST['newProfilePic'])
         <div class="col-md-8">
             <h4 style="color:#4A4A4A">Add Pictures</h4>
         </div>
-    </div> 
+    </div>
     <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
