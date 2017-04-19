@@ -77,7 +77,7 @@ if($_POST['repeatPasswords'])
           $_SESSION['passwords']=$password;
           $emailError = "<br><p class='text-success'>New Account CREATED!</p>";
           //redirect to account creation page.
-          header("Location: createProfile.php");
+          header("Location: Account/createProfile.php");
           die();
           ;
         }
@@ -119,9 +119,9 @@ if($_POST['repeatPasswords'])
               <h3 class="masthead-brand"></h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="home.php">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li class="active"><a href="Main/home.php">Home</a></li>
+                  <li><a href="Main/about.html">About</a></li>
+                  <li><a href="Main/contact.html">Contact</a></li>
                 </ul>
               </nav>
             </div>
