@@ -2,7 +2,7 @@
 	session_start();// if this is not at the top of a page then it won't work and u will hate yourself for 300 mins trying to figure out why
 	//test to make sure the user is logged in
 	if($_SESSION['email'] == ""){
-		header("Location: index.php");
+		header("Location: ../index.php");
 		die();
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
@@ -67,7 +67,6 @@
   }
 if($_POST['newProfilePic'])
 {
-  echo "fuck this shit";
   $target_dir = '../uploads/'.$useremail.'/profilePicture'.'/';
   if (!file_exists('../uploads/'.$useremail)) {
       mkdir('../uploads/'.$useremail, 0777, true);
@@ -82,41 +81,37 @@ if($_POST['newProfilePic'])
   if(isset($_POST["submit"])) {
       $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
       if($check !== false) {
-          echo "File is an image - " . $check["mime"] . ".";
+          $profilepicError = "<br>File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
       } else {
-          echo "File is not an image.";
+          $profilepicError = "<br>File is not an image.";
           $uploadOk = 0;
       }
   }
-  // Check if file already exists
-  if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-  }
+
   // Check file size
   if ($_FILES["fileToUpload"]["size"] > 500000) {
-      echo "Sorry, your file is too large.";
+      $profilepicError = "<br>Sorry, your file is too large.";
       $uploadOk = 0;
   }
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $profilepicError = "<br>Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadOk = 0;
   }
   // Check if $uploadOk is set to 0 by an error
   if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+      $profilepicError = "<br>Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         $sql = "update users set profilePic ='$target_file' where UserEmail = '$useremail'";
       	$q = $conn->query($sql);
-          echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+          $profilepicError = "<br>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
       } else {
 
-          echo "Sorry, there was an error uploading your file.";
+          $profilepicError = "<br>Sorry, there was an error uploading your file.";
       }
   }
 }
@@ -185,8 +180,8 @@ if($_POST['newProfilePic'])
     <div class="col-md-8"><h3><?php echo $name; ?></h3></div>
   </div>
   <hr>
-  <form id = "UpdateProfile" action="upload.php" method="post">
-    <form id = "updateProfilePic" action="upload.php" method="post" enctype="multipart/form-data">
+  <form id = "UpdateProfile" action="../Processes/upload.php" method="post">
+    <form id = "updateProfilePic" action="../Processes/upload.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -209,6 +204,7 @@ if($_POST['newProfilePic'])
         </div>
       </div>
     </form>
+		<?php echo $profilepicError;?>
   <br>
   <div class="row">
     <div class="col-md-2"></div>
@@ -219,7 +215,7 @@ if($_POST['newProfilePic'])
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <textarea name="Description" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
+      <textarea name="Description" cols="60" rows="10" placeholder="Description of the Band"></textarea>
     </div>
   </div>
   <br>
@@ -257,18 +253,6 @@ if($_POST['newProfilePic'])
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script>
-    $(function(){
-       $('updateProfilePic').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("updateProfilePic").serialize(),
-                $('#acctCreationModal').modal('show');
 
-            });
-       });
-    });
-</script>
 </body>
 </html>
