@@ -73,8 +73,9 @@ echo      "<td>".$ShowDate."</td>";
 echo      "<td>".$ShowTime."</td>";
 echo    "</tr>";
 echo  "</tbody>";
-echo "</table> ";
 ?>
+</table>
+
 
   <!-- These must be in file, and they're at the bottom so the page loads quicker -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
