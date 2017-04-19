@@ -236,13 +236,19 @@
   	echo		"<strong>".$profilepicError."</strong>"; 
 	echo	"</div>";
 	}
+	if (isset($profilepicSuccess)) {
+	echo	"<div class='alert alert-dismissible alert-success'>";
+  	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+  	echo		"<strong>".$profilepicSuccess."</strong>"; 
+	echo	"</div>";
+	}
 ?>
   <!-- FORM -->
 <div class="panel panel-default">
   <fieldset>
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8"><h3><?php echo $name; ?></h3></div>
+    <div class="col-md-8"><h3 style="color:#4A4A4A"><?php echo $name; ?></h3></div>
   </div>
   <hr>
   <form id = "UpdateProfile" action="" method="POST" enctype="multipart/form-data">
@@ -317,7 +323,9 @@
 
 
 
-
+	<!-- These must be in file, and they're at the bottom so the page loads quicker -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 
 
 </body>
