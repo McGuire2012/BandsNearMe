@@ -139,7 +139,7 @@
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
+     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="#">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
@@ -176,13 +176,13 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder=""><?php echo $useremail ?>
+        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $useremail ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
 
@@ -210,13 +210,13 @@
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <label for="inputPassword" class="col-lg-2 control-label">Repeat Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
     <div class="form-group">

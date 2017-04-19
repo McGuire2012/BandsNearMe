@@ -83,35 +83,35 @@
 	if(isset($_POST["submit"])) {
 	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 	    if($check !== false) {
-	        echo "File is an image - " . $check["mime"] . ".";
+	        $profilepicError = "File is an image - " . $check["mime"] . ".";
 	        $uploadOk = 1;
 	    } else {
-	        echo "File is not an image.";
+	        $profilepicError = "File is not an image.";
 	        $uploadOk = 0;
 	    }
 	}
 
 	// Check file size
 	if ($_FILES["fileToUpload"]["size"] > 500000) {
-	    echo "Sorry, your file is too large.";
+	    $profilepicError = "Sorry, your file is too large.";
 	    $uploadOk = 0;
 	}
 	// Allow certain file formats
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 	&& $imageFileType != "gif" ) {
-	    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	     $profilepicError = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	    $uploadOk = 0;
 	}
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
-	    echo "Sorry, your file was not uploaded.";
+	    $profilepicError = "Sorry, your file was not uploaded.";
 	// if everything is ok, try to upload file
 	} else {
 	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 	        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 	    } else {
 
-	        echo "Sorry, there was an error uploading your file.";
+	        $profilepicError = "Sorry, there was an error uploading your file.";
 	    }
 	}
 
@@ -222,6 +222,21 @@
 
 
 <div class="container">
+<!-- Error Messages -->
+<?php
+	if (isset($homePhotoError)) {
+	echo	"<div class='alert alert-dismissible alert-danger'>";
+  	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+  	echo		"<strong>".$homePhotoError."</strong>"; 
+	echo	"</div>";
+	}
+	if (isset($profilepicError)) {
+	echo	"<div class='alert alert-dismissible alert-danger'>";
+  	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+  	echo		"<strong>".$profilepicError."</strong>"; 
+	echo	"</div>";
+	}
+?>
   <!-- FORM -->
 <div class="panel panel-default">
   <fieldset>
@@ -247,12 +262,10 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <label class="btn btn-default" for="newProfilePic">
-              Choose File<input type="file" name="newProfilePic" id="newProfilePic">
+              Choose File<input type="file" name="newProfilePic" id="newProfilePic" style="display:none">
             </label>
         </div>
       </div>
-
-		<?php echo $profilepicError;?>
   <br>
   <div class="row">
     <div class="col-md-2"></div>
@@ -287,7 +300,6 @@
 					</label>
 			</div>
 		</div>
-		<?php echo $homePhotoError;?>
   <br>
   <br>
     <div class="row">
