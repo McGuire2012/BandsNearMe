@@ -126,8 +126,8 @@
         </li>
       </ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+				<li><a href="../Main/about.html">About</a></li>
+        <li><a href="../Main/contact.html">Contact</a></li>
       <li><a href="../Processes/logout.php">Logout</a></li>
 		</ul>
     </div><!--/.nav-collapse -->

@@ -93,7 +93,7 @@ if($resultType == "Admin")
     <link href="../Styles/form.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.load('current', {packages: ['line']});
     google.charts.setOnLoadCallback(drawBasic);
 
     function drawBasic() {
