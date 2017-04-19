@@ -227,19 +227,19 @@
 	if (isset($homePhotoError)) {
 	echo	"<div class='alert alert-dismissible alert-danger'>";
   	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
-  	echo		"<strong>".$homePhotoError."</strong>"; 
+  	echo		"<strong>".$homePhotoError."</strong>";
 	echo	"</div>";
 	}
 	if (isset($profilepicError)) {
 	echo	"<div class='alert alert-dismissible alert-danger'>";
   	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
-  	echo		"<strong>".$profilepicError."</strong>"; 
+  	echo		"<strong>".$profilepicError."</strong>";
 	echo	"</div>";
 	}
 	if (isset($profilepicSuccess)) {
 	echo	"<div class='alert alert-dismissible alert-success'>";
   	echo		"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
-  	echo		"<strong>".$profilepicSuccess."</strong>"; 
+  	echo		"<strong>".$profilepicSuccess."</strong>";
 	echo	"</div>";
 	}
 ?>
@@ -273,23 +273,11 @@
         </div>
       </div>
   <br>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h4 style="color:#4A4A4A">Description</h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <textarea name="Description" cols="60" rows="10" placeholder="Description of the Band"></textarea>
-    </div>
-  </div>
   <br>
   <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h4 style="color:#4A4A4A">Add Pictures</h4>
+            <h4 style="color:#4A4A4A">Add Pictures to Profile</h4>
         </div>
     </div>
 		<div class="row">
