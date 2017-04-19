@@ -113,7 +113,23 @@ if($resultType == "Band" || $resultType == "Venue")
 		//get row data
 				$row_data = explode(',', $data);
 
-		$sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]')";
+				$vUsername = $row_data[1];
+				$BUsername = $row_data[0];
+				$sql = "SELECT VenueName, VAddress, VLong, VLat from Venue where VUserName = '$vUsername'";
+				$q = $conn->query($sql);
+				$result = $q->fetchAll();
+				$venueName = $result[0][0];
+				$VAddress = $result[0][1];
+				$VLong = $result[0][2];
+				$VLat = $result[0][3];
+
+				$sql = "SELECT bandname from band where BUserName = '$BUsername'";
+				$q = $conn->query($sql);
+				$result = $q->fetchAll();
+				$bandName = $result[0][0];
+
+
+				$sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime, BandName, VenueName, VAddress, VLong, VLat) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]', $bandName, $venueName, $VAddress, $VLong, $VLat)";
 
 
 		try{
