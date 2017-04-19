@@ -151,7 +151,7 @@
 			<div class = "col-lg-10">
 				<h4>Photos</h4>
 				<p><?php
-				$directory = "uploads/$useremail"."/";
+				$directory = "../uploads/$useremail"."/";
 				$images = glob($directory."*.*");
 				if($images[0] == null)
 				{
