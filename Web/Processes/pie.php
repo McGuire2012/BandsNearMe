@@ -10,15 +10,38 @@
   $password = $_SESSION['passwords'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
-	$user = "SA";
-	$PW = "111#ZXC#222";
-	$conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
-	// set the PDO error mode to exception
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	//need to grab every detail from the account table
+	$server = "cisvm-SenPro1";
+  $user = "SA";
+  $PW = "111#ZXC#222";
 
-	//What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
-	//Based on user type the forms will populate differently. Based on indiv, venue, band.
+  try {
+      $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     // echo "Mama we made it! ";
+
+      $sql = "SELECT Count(usertype) FROM USERS where UserType = 'admin'";
+      $q = $conn->query($sql);
+      $result = $q->fetchAll();
+      $adminNum = $result[0][0];
+      $sql = "SELECT Count(usertype) FROM USERS where UserType = 'band'";
+      $q = $conn->query($sql);
+      $result = $q->fetchAll();
+      $bandNum = $result[0][0];
+      $sql = "SELECT Count(usertype) FROM USERS where UserType = 'indiv'";
+      $q = $conn->query($sql);
+      $result = $q->fetchAll();
+      $indivNum = $result[0][0];
+      $sql = "SELECT Count(usertype) FROM USERS where UserType = 'venue'";
+      $q = $conn->query($sql);
+      $result = $q->fetchAll();
+      $venueNum = $result[0][0];
+
+    }
+    catch(PDOException $e){
+      echo $e;
+    }
+
 
   $isAdmin = 0;
 
@@ -37,101 +60,7 @@
 
 
 
-<div id="admin" style="display: none;">
-  <?php
-  $server = "cisvm-SenPro1";
-  $user = "SA";
-  $PW = "111#ZXC#222";
 
-  try {
-      $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Mama we made it! ";
-
-      $sql = "SELECT Count(Admin) FROM USERS";
-      $q = $conn->query($sql);
-      $q -> execute();
-      $result = $q->fetchAll();
-      echo htmlspecialchars($result);
-    }
-    catch(PDOException $e){
-      echo "halp";
-    }
-  ?>
-</div>
-
-<div id="band" style="display: none;">
-  <?php
-  $server = "cisvm-SenPro1";
-  $user = "SA";
-  $PW = "111#ZXC#222";
-
-  try {
-      $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Mama we made it! ";
-
-      $sql = "SELECT Count(Band) FROM USERS";
-      $q = $conn->query($sql);
-      $q -> execute();
-      $result = $q->fetchAll();
-      echo htmlspecialchars($result);
-    }
-    catch(PDOException $e){
-      echo "halp";
-    }
-  ?>
-</div>
-
-<div id="indiv" style="display: none;">
-  <?php
-  $server = "cisvm-SenPro1";
-  $user = "SA";
-  $PW = "111#ZXC#222";
-
-  try {
-      $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Mama we made it! ";
-
-      $sql = "SELECT Count(Indiv) FROM USERS";
-      $q = $conn->query($sql);
-      $q -> execute();
-      $result = $q->fetchAll();
-      echo htmlspecialchars($result);
-    }
-    catch(PDOException $e){
-      echo "halp";
-    }
-  ?>
-</div>
-
-<div id="venue" style="display: none;">
-  <?php
-  $server = "cisvm-SenPro1";
-  $user = "SA";
-  $PW = "111#ZXC#222";
-
-  try {
-      $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Mama we made it! ";
-
-      $sql = "SELECT Count(Venue) FROM USERS";
-      $q = $conn->query($sql);
-      $q -> execute();
-      $result = $q->fetchAll();
-      echo htmlspecialchars($result);
-    }
-    catch(PDOException $e){
-      echo "halp";
-    }
-?>
-</div>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,22 +72,16 @@
     <title>Types of Users</title>
     <link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../Styles/form.css" rel="stylesheet">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-
-        var adminDiv = document.getElementById("admin");
-        var bandDiv = document.getElementById("band");
-        var indivDiv = document.getElementById("admin");
-        var venueDiv = document.getElementById("admin");
-
-        var adminNum = adminDiv.textContent;
-        var bandNum = bandDiv.textContent;
-        var indivNum = indivDiv.textContent;
-        var venueNum = venueDiv.textContent;
+        var adminNum = <?php echo $adminNum ?>;
+        var bandNum = <?php echo $bandNum ?>;
+        var indivNum = <?php echo $indivNum ?>;
+        var venueNum = <?php echo $venueNum ?>;
 
 
         var data = google.visualization.arrayToDataTable([
@@ -184,7 +107,7 @@
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
     </div>
 		<div class="collapse navbar-collapse" style="background-color:#2C2929">
@@ -215,11 +138,11 @@
 <div class="container">
   <!-- FORM -->
   <div class="panel panel-default">
- <form class="form-horizontal">
   <fieldset>
 			<div class="col-lg-12">
-			<div class = "col-lg-10" id="piechart" style="width: 900px; height: 500px;">
-
+			<div class = "col-lg-10" >
+				<div id="piechart" style="width: 900px; height: 500px;">
+				</div>
 			</div>
 
 		</div>
@@ -228,7 +151,6 @@
 
 
   </fieldset>
-</form> <!-- End Form-->
  </div>
 
 </div> <!-- End Container -->

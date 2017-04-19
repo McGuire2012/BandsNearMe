@@ -147,7 +147,7 @@ if($resultType == "Admin")
 <!--Top & SideNavBar -->
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
+     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
       <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
     </div>
 		<div class="collapse navbar-collapse" style="background-color:#2C2929">
@@ -159,9 +159,9 @@ if($resultType == "Admin")
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="active"><a href="../Processes/pie.php">Types of User</a></li>
+            <li><a href="../Processes/pie.php">Types of User</a></li>
             <li><a href="#">Traffic</a></li>
-            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+            <li class="active"><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
           </ul>
         </li>
       </ul>

@@ -178,19 +178,20 @@
 			  $resultCount = $result[0][0];
 				if($resultCount > 0)
 				{
-					$sql = "SELECT BUserName, VUserName from Favorite where UserName = '$username'";
+					$sql = "SELECT BandName, VenueName from Favorite where UserName = '$username'";
 				  $q = $conn->query($sql);
 				  $result = $q->fetchAll();
 					for($i =0; $i<$resultCount; $i++)
 					{
-						if($result[i][0]!= null)
+
+						if($result[$i][0]!= null)
 						{
-							$bandResult = $result[i][0];
+							$bandResult = $result[$i][0];
 							echo "You liked the band: $bandResult<br>";
 						}
 						else {
-							$venueResult = $result[i][1];
-							echo "You liked the band: $venueResult<br>";
+							$venueResult = $result[$i][1];
+							echo "You liked the Venue: $venueResult<br>";
 						}
 					}
 
