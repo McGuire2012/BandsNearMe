@@ -22,6 +22,14 @@ echo "password =".$result['UserPW'];
 
 echo "Doing second query:";
 echo "\n";
+// $sql = "SELECT * from BAND where BUserName = '$username'";
+// 	$q = $conn->query($sql);
+// 	$result = $q->fetchAll();
+// 	$bandName = $result[0][1];
+// 	$genre = $result[0][2];
+// 	$rating = $result[0][3];
+// 	$description = $result[0][4];
+// print_r($result);
 $sql = "SELECT * from BAND where BUserName = '$username'";
 	$q = $conn->query($sql);
 	$result = $q->fetchAll();
@@ -29,7 +37,8 @@ $sql = "SELECT * from BAND where BUserName = '$username'";
 	$genre = $result[0][2];
 	$rating = $result[0][3];
 	$description = $result[0][4];
-print_r($result);
 echo "bandname=".$bandName;
+echo "genre=".$genre;
+echo "rating=".$rating;
 echo "this working here?";
   ?>

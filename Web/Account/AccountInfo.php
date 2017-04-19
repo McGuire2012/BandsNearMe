@@ -8,6 +8,7 @@
 
 	$useremail = $_SESSION['email'];
   $password = $_SESSION['passwords'];
+  $username = $_SESSION['username'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
 	$user = "SA";
@@ -175,7 +176,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder=""><?php echo $userEmail; ?>
+        <input type="email" class="form-control" id="inputEmail" placeholder=""><?php echo $useremail ?>
       </div>
     </div>
     <div class="form-group">
@@ -203,7 +204,7 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail; ?>">
+        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
@@ -221,7 +222,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea" style="color: #474747" value="<?php echo $description; ?>"></textarea>
+        <textarea class="form-control" rows="3" id="textArea" style="color:#474747"><?php echo $description ?></textarea>
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </div>
     </div>
@@ -230,38 +231,62 @@
       <div class="col-lg-10">
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="<?php echo $genre; ?>" checked="">
-            <?php echo $genre; ?>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="Jazz" <?php if ($genre == 'Jazz') echo "checked='checked'"; ?>>
+            Jazz
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Rap">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Rap" <?php if ($genre == 'Rap') echo "checked='checked'"; ?>>
             Rap
           </label>
         </div>
 		    <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios3" value="Blues">
+            <input type="radio" name="optionsRadios" id="optionsRadios3" value="Blues" <?php if ($genre == 'Blues') echo "checked='checked'"; ?>>
             Blues
           </label>
         </div>
 		    <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios4" value="Rock">
+            <input type="radio" name="optionsRadios" id="optionsRadios4" value="Rock" <?php if ($genre == 'Rock') echo "checked='checked'"; ?>>
             Rock
           </label>
         </div>
 		    <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios5" value="Pop">
+            <input type="radio" name="optionsRadios" id="optionsRadios5" value="Pop" <?php if ($genre == 'Pop') echo "checked='checked'"; ?>>
             Pop
           </label>
         </div>
 		    <div class="radio">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios6" value="Indie">
+            <input type="radio" name="optionsRadios" id="optionsRadios6" value="Indie" <?php if ($genre == 'Indie') echo "checked='checked'"; ?>>
             Indie
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Electronic" <?php if ($genre == 'Electronic') echo "checked='checked'"; ?>>
+            Electronic
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Classical" <?php if ($genre == 'Classical') echo "checked='checked'"; ?>>
+            Classical
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="Alternative" <?php if ($genre == 'Alternative') echo "checked='checked'"; ?>>
+            Alternative
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="New Age" <?php if ($genre == 'New Age') echo "checked='checked'"; ?>>
+            New Age
           </label>
         </div>
       </div>
@@ -286,39 +311,5 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 
-	<script>
-    $(function(){
-       $('indivUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("indivUser").serialize(),
-
-            });
-       });
-    });
-</script>
-<script>
-    $(function(){
-       $('BUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("BUser").serialize(),
-            });
-       });
-    });
-</script>
-<script>
-    $(function(){
-       $('VUser').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                data: $("VUser").serialize(),
-            });
-       });
-    });
-</script>
 </body>
 </html>
