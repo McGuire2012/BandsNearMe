@@ -185,7 +185,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Edit Profile</title>
-		<link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../Styles/form.css" rel="stylesheet">
 
 	</head>
@@ -318,7 +318,7 @@
             <a href="../Account/AccountInfo.php" class="list-group-item">Edit Account</a>
             <a href="../Account/editProfile.php" class="list-group-item active">Edit Profile</a>
             <a href="../Main/ViewShows.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>View Shows</a>
-            <a href="../Processes/UploadEvents.html" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
+            <a href="../Processes/UploadEvents.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       

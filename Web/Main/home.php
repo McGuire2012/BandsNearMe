@@ -43,6 +43,7 @@
   }
   if($resultType == "Band" || $resultType == "Venue")
   {
+  	$_SESSION['resultType'] = $resultType;
     $isPerformance = 1;
 		if($resultType == "Band")
 		{
@@ -107,33 +108,33 @@
 
 	<body>
 <!--Top & SideNavBar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="home.php">BandsNearMe</a>
-    </div>
-		<div class="collapse navbar-collapse" style="background-color:#2C2929">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="home.php">Home</a></li>
-				<li><a href="../Account/AccountInfo.php">Account</a></li>
-				<li><a href="../Account/editProfile.php">Edit Profile</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../Processes/pie.php">Types of User</a></li>
-            <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
-            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+    <!--Top & SideNavBar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+         <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
+          <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
+        </div>
+        <div class="collapse navbar-collapse" style="background-color:#2C2929">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../Main/home.php">Home</a></li>
+            <li><a href="../Account/AccountInfo.php">Account</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../Processes/pie.php">Types of User</a></li>
+                <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
+                <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      <li><a href="../Processes/logout.php">Logout</a></li>
-		</ul>
-    </div><!--/.nav-collapse -->
-</div><!--/.navbar -->
+          <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
+            <li><a href="../Main/about.html">About</a></li>
+            <li><a href="../Main/contact.html">Contact</a></li>
+          <li><a href="../Processes/logout.php">Logout</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar -->
 
 
 
