@@ -289,7 +289,7 @@
 		<div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
-		<label class="btn btn-default" for="newProfilePic">
+		<label class="btn btn-default" for="fileToUpload">
 						Choose File<input type="file" name="fileToUpload" id="fileToUpload" style="display:none">
 					</label>
 			</div>
