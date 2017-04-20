@@ -91,8 +91,8 @@
         <div class="collapse navbar-collapse" style="background-color:#2C2929">
           <ul class="nav navbar-nav">
             <li><a href="../Main/home.php">Home</a></li>
-            <li><a href="AccountInfo.php">Account</a></li>
-            <li class="active"><a href="editProfile.php">Edit Profile</a></li>
+            <li class="active"><a href="../Account/AccountInfo.php">Account</a></li>
+            <li ><a href="../Account/editProfile.php">Edit Profile</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
               <span class="caret"></span></a>

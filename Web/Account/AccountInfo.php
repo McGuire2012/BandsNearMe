@@ -121,33 +121,34 @@
 <body onload="getUserType()">
 
 <!--Top & SideNavBar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-     <img src="Styles/LocationBNMicon.png" class="navbar-brand">
-      <a class="navbar-brand" href="#">BandsNearMe</a>
-    </div>
-    <div class="collapse navbar-collapse" style="background-color:#2C2929">
-      <ul class="nav navbar-nav">
-        <li><a href="../Main/home.php">Home</a></li>
-				<li class="active"><a href="AccountInfo.php">Account</a></li>
-				<li><a href="editProfile.php">Edit Profile</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../Processes/pie.php">Types of User</a></li>
-            <li><a href="#">Traffic</a></li>
-            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+    <!--Top & SideNavBar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+         <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
+          <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
+        </div>
+        <div class="collapse navbar-collapse" style="background-color:#2C2929">
+          <ul class="nav navbar-nav">
+            <li><a href="../Main/home.php">Home</a></li>
+            <li class="active"><a href="../Account/AccountInfo.php">Account</a></li>
+            <li ><a href="../Account/editProfile.php">Edit Profile</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../Processes/pie.php">Types of User</a></li>
+                <li><a href="#">Traffic</a></li>
+                <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../Main/about.html">About</a></li>
-        <li><a href="../Main/contact.html">Contact</a></li>
-      <li><a href="../Processes/logout.php">Logout</a></li>
-		</ul>
-    </div><!--/.nav-collapse -->
-</div><!--/.navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../Main/about.html">About</a></li>
+            <li><a href="../Main/contact.html">Contact</a></li>
+          <li><a href="../Processes/logout.php">Logout</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar -->
 
 
 <div class="container">
@@ -287,6 +288,46 @@
 
 <!-- VENUES -->
 <!-- FORM  -->
+<div class="panel panel-default">
+ <form class="form-horizontal" id="VUser" action="" method="post" style="display:none;">
+  <fieldset>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
+      <div class="col-lg-10">
+        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail ?>" style="color:#474747">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Repeat Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea" style="color:#474747"><?php echo $description ?></textarea>
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </div>
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+ </form> <!-- End Form-->
+</div>
+
 
 </div> <!-- End Container -->
 
