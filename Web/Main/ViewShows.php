@@ -82,6 +82,7 @@
   </head>
 
   <body>
+<!--Top & SideNavBar -->
     <!--Top & SideNavBar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
@@ -92,7 +93,6 @@
           <ul class="nav navbar-nav">
             <li><a href="../Main/home.php">Home</a></li>
             <li class="active"><a href="../Account/AccountInfo.php">Account</a></li>
-            <li ><a href="../Account/editProfile.php">Edit Profile</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
               <span class="caret"></span></a>
@@ -103,7 +103,7 @@
               </ul>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
             <li><a href="../Main/about.html">About</a></li>
             <li><a href="../Main/contact.html">Contact</a></li>
           <li><a href="../Processes/logout.php">Logout</a></li>
@@ -111,7 +111,12 @@
         </div><!--/.nav-collapse -->
     </div><!--/.navbar -->
 
-<div class="container">
+
+ <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9 col-sm-push-3">
+<!-- Content here -->
+
 
 <div class="row">
   <h3 style="text-align: center; padding-top: 100px;"> Your Upcoming Shows </h3>
@@ -183,8 +188,8 @@ echo  "</tbody>";
         </div><!--/.sidebar-offcanvas-->
 
   </div><!--/row-->
-
 </div> <!-- End Container -->
+
 
   <!-- These must be in file, and they're at the bottom so the page loads quicker -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
