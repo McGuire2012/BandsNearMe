@@ -65,6 +65,20 @@
     <link href="../Styles/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../Styles/form.css" rel="stylesheet">
 
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript">
+      function changeRecord()
+      {
+        document.myForm.action='../Processes/changeShow.php'
+        document.myForm.submit();
+      }
+      function deleteRecord()
+      {
+        document.myForm.action='../Processes/deleteShow.php'
+        document.myForm.submit();
+      }
+    </script>
+
   </head>
 
   <body>
@@ -98,6 +112,7 @@
     </div><!--/.navbar -->
 
 <div class="container">
+
 <div class="row">
   <h3 style="text-align: center; padding-top: 100px;"> Your Upcoming Shows </h3>
 </div>
@@ -105,6 +120,8 @@
   <p style="text-align: center;"> Select a show to edit</p>
 </div>
 <hr>
+
+<form name="myForm" method="get">
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
@@ -141,16 +158,17 @@ echo  "<tbody>";
   }
 echo  "</tbody>";
 ?>
-</table>
+</table><!-- End Table -->
 <hr>
 <!-- Buttons -->
   <div class="row">
     <div class="col-md-5"></div>
     <div class="col-md-4">
-      <button type="reset" class="btn btn-default">Edit</button>
-      <button type="submit" class="btn btn-primary">Delete</button>
+      <button type="reset" class="btn btn-default" onclick="changeRecord()">Edit</button>
+      <button type="submit" class="btn btn-primary" onclick="deleteRecord()">Delete</button>
     </div>
   </div>
+</form><!-- End Form -->
 </div> <!-- End Container -->
 
   <!-- These must be in file, and they're at the bottom so the page loads quicker -->
