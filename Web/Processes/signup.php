@@ -143,7 +143,8 @@ function drawBasic() {
           title: 'Sign-Up Rate'
         },
         'width':800,
-        'height':600
+        'height':600,
+        pointSize:12
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
