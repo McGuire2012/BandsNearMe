@@ -66,8 +66,32 @@
 	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
 
-  } 
+  }
 //set information when user enters form
+
+
+//php sql commands for inputed values
+if($_POST['inputPassword'])
+{
+  $password = $_POST['inputPassword'];
+	if($_POST['repeatPassword'])
+	{
+		$repeatPass = $_POST['repeatPassword'];
+
+		if($password == $repeatPass)
+		{
+			$sql = "UPDATE users set UserPW = '$password' where UserEmail = '$useremail'";
+			$q = $conn->query($sql);
+			$passwordError = "<br> Password has been updated.";
+		}
+		else {
+			$passwordError = "<br><span style = 'color:red;'>Passwords do not match.</span>"
+		}
+	}
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -161,16 +185,22 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $useremail ?>" style="color:#474747">
+        <input type="email" class="form-control" id="inputEmail" name ="inputEmail" value="<?php echo $useremail ?>" style="color:#474747" readonly="">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+        <input type="password" class="form-control" id="inputPassword" name = "inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
-
+		<div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Repeat Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="repeatPassword" name= "repeatPassword" placeholder="Password" style="color:#474747">
+      </div>
+			<?php echo $passwordError; ?>
+    </div>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
@@ -189,20 +219,21 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail ?>" style="color:#474747">
+        <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<?php echo $useremail ?>" style="color:#474747" readonly="">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Repeat Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+        <input type="password" class="form-control" id="repeatPassword" name= "repeatPassword" placeholder="Password" style="color:#474747">
       </div>
+			<?php echo $passwordError; ?>
     </div>
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
@@ -294,20 +325,21 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
       <div class="col-lg-10">
-        <input type="email" class="form-control" id="inputEmail" value="<?php echo $useremail ?>" style="color:#474747">
+        <input type="email" class="form-control" id="inputEmail" name = "inputEmail" value="<?php echo $useremail ?>" style="color:#474747" readonly="">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+        <input type="password" class="form-control" id="inputPassword" name = "inputPassword" placeholder="Password" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="inputPassword" class="col-lg-2 control-label">Repeat Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="color:#474747">
+        <input type="password" class="form-control" id="repeatPassword" name= "repeatPassword" placeholder="Password" style="color:#474747">
       </div>
+			<?php echo $passwordError; ?>
     </div>
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
