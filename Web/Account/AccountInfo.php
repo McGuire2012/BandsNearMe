@@ -85,7 +85,7 @@ if($_POST['inputPassword'])
 			$passwordError = "<br> Password has been updated.";
 		}
 		else {
-			$passwordError = "<br><span style = 'color:red;'>Passwords do not match.</span>"
+			$passwordError = "<br><span style = 'color:red;'>Passwords do not match.</span>";
 		}
 	}
 }
@@ -155,7 +155,6 @@ if($_POST['inputPassword'])
           <ul class="nav navbar-nav">
             <li><a href="../Main/home.php">Home</a></li>
             <li class="active"><a href="../Account/AccountInfo.php">Account</a></li>
-            <li ><a href="../Account/editProfile.php">Edit Profile</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
               <span class="caret"></span></a>
@@ -166,7 +165,7 @@ if($_POST['inputPassword'])
               </ul>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
             <li><a href="../Main/about.html">About</a></li>
             <li><a href="../Main/contact.html">Contact</a></li>
           <li><a href="../Processes/logout.php">Logout</a></li>
@@ -175,8 +174,12 @@ if($_POST['inputPassword'])
     </div><!--/.navbar -->
 
 
-<div class="container">
+ <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9 col-sm-push-3">
+<!-- Content here -->
 
+        
 <!-- Indiv User -->
 <!--  FORM  -->
 <div class="panel panel-default">
@@ -360,7 +363,19 @@ if($_POST['inputPassword'])
  </form> <!-- End Form-->
 </div>
 
-
+<!-- Sidebar here -->
+</div> <!--/.col-xs-12.col-sm-9-->
+        <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+          <div class="list-group" style="padding-top: 50px">
+            <h3 class="list-group-item-heading"><?php echo $username; ?></h3>
+            <a href="../Account/AccountInfo.php" class="list-group-item active">Edit Account</a>
+            <a href="../Account/editProfile.php" class="list-group-item">Edit Profile</a>
+            <a href="../Main/ViewShows.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>View Shows</a>
+            <a href="../Processes/UploadEvents.html" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      
+  </div><!--/row-->
 </div> <!-- End Container -->
 
 

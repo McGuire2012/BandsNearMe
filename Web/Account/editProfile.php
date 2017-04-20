@@ -7,6 +7,7 @@
 	} //This if statement and the sessionstart need to be at the top of every page except for index.php
 
 	$useremail = $_SESSION['email'];
+    $username = $_SESSION['username'];
 
 	//connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
 	$user = "SA";
@@ -191,37 +192,41 @@
 
 	<body>
 		<!--Top & SideNavBar -->
-		<div class="navbar navbar-inverse navbar-fixed-top">
-		    <div class="navbar-header">
-		     <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
-		      <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
-		    </div>
-				<div class="collapse navbar-collapse" style="background-color:#2C2929">
-		      <ul class="nav navbar-nav">
-		        <li><a href="../Main/home.php">Home</a></li>
-						<li><a href="AccountInfo.php">Account</a></li>
-						<li class="active"><a href="editProfile.php">Edit Profile</a></li>
-		        <li class="dropdown">
-		          <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
-		          <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="../Processes/pie.php">Types of User</a></li>
-		            <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
-		            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
-		          </ul>
-		        </li>
-		      </ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../Main/about.html">About</a></li>
-		        <li><a href="../Main/contact.html">Contact</a></li>
-		      <li><a href="../Processes/logout.php">Logout</a></li>
-				</ul>
-		    </div><!--/.nav-collapse -->
-		</div><!--/.navbar -->
+    <!--Top & SideNavBar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+         <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
+          <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
+        </div>
+        <div class="collapse navbar-collapse" style="background-color:#2C2929">
+          <ul class="nav navbar-nav">
+            <li><a href="../Main/home.php">Home</a></li>
+            <li class="active"><a href="../Account/AccountInfo.php">Account</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../Processes/pie.php">Types of User</a></li>
+                <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
+                <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
+            <li><a href="../Main/about.html">About</a></li>
+            <li><a href="../Main/contact.html">Contact</a></li>
+          <li><a href="../Processes/logout.php">Logout</a></li>
+        </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar -->
 
 
+ <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9 col-sm-push-3">
+<!-- Content here -->
 
-<div class="container">
+
 <!-- Error Messages -->
 <?php
 	if (isset($homePhotoError)) {
@@ -245,23 +250,20 @@
 ?>
   <!-- FORM -->
 <div class="panel panel-default">
+ <form class="form-horizontal" id = "UpdateProfile" action="" method="POST" enctype="multipart/form-data">
   <fieldset>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8"><h3 style="color:#4A4A4A"><?php echo $name; ?></h3></div>
-  </div>
-  <hr>
-  <form id = "UpdateProfile" action="" method="POST" enctype="multipart/form-data">
-      <div class="row">
+  
+      <div class="form-group">
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <h4 style="color:#4A4A4A">Update Profile Picture</h4>
         </div>
       </div>
-      <div class="row">
+      <div class="form-group">
           <div class="col-md-4"></div>
           <div class="col-md-4">
-            <h5 style="color:#4A4A4A">Select image to upload:</h5>
+           <!-- <h5 style="color:#4A4A4A">Select image to upload:</h5> -->
+           <label for="newProfilePic" class="control-label">Select image to upload:</label>
           </div>
       </div>
       <div class="row">
@@ -274,16 +276,16 @@
       </div>
   <br>
   <br>
-  <div class="row">
+  <div class="form-group">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <h4 style="color:#4A4A4A">Add Pictures to Profile</h4>
         </div>
     </div>
-		<div class="row">
+		<div class="form-group">
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<h5 style="color:#4A4A4A">Select image to upload:</h5>
+					<label for="fileToUpload" class="control-label">Select image to upload:</label>
 				</div>
 		</div>
 		<div class="row">
@@ -296,7 +298,7 @@
 		</div>
   <br>
   <br>
-    <div class="row">
+    <div class="form-group">
     <div class="col-md-5"></div>
     <div class="col-md-4">
       <button type="submit" name = "submit" class="btn btn-primary">Submit</button>
@@ -307,6 +309,20 @@
   </form>
   </fieldset>
  </div>
+
+<!-- Sidebar here -->
+</div> <!--/.col-xs-12.col-sm-9-->
+        <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+          <div class="list-group" style="padding-top: 50px">
+            <h3 class="list-group-item-heading"><?php echo $username; ?></h3>
+            <a href="../Account/AccountInfo.php" class="list-group-item">Edit Account</a>
+            <a href="../Account/editProfile.php" class="list-group-item active">Edit Profile</a>
+            <a href="../Main/ViewShows.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>View Shows</a>
+            <a href="../Processes/UploadEvents.html" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      
+  </div><!--/row-->
 </div> <!-- End Container -->
 
 
