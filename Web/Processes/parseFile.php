@@ -64,7 +64,7 @@ if($resultType == "Band" || $resultType == "Venue")
 							<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="../Processes/pie.php">Types of User</a></li>
-								<li><a href="#">Traffic</a></li>
+								<li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
 								<li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
 							</ul>
 						</li>

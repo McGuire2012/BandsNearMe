@@ -40,42 +40,40 @@ $queryDateC = date("Y-m-d", strtotime( '-4 days' ) );
 $queryDateB = date("Y-m-d", strtotime( '-5 days' ) );
 $queryDateA = date("Y-m-d", strtotime( '-6 days' ) );
 
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateA'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateA = $result[0][0];
 
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateB'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateB = $result[0][0];
 
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateA'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateA = $result[0][0];
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateC'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateC = $result[0][0];
 
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateB'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateB = $result[0][0];
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateD'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateD = $result[0][0];
 
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateC'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateC = $result[0][0];
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateE'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateE = $result[0][0];
 
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateD'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateD = $result[0][0];
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateF'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateF = $result[0][0];
 
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateE'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateE = $result[0][0];
-
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateF'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateF = $result[0][0];
-
-$sql = "SELECT Count(StartDate) FROM USERS where StartDate = '$queryDateG'";
-$q = $conn->query($sql);
-$result = $q->fetchAll();
-$dateG = $result[0][0];
+    $sql = "SELECT Count(ShowDate) FROM SHOW where ShowDate = '$queryDateG'";
+    $q = $conn->query($sql);
+    $result = $q->fetchAll();
+    $dateG = $result[0][0];
 
 
   ?>
@@ -93,22 +91,22 @@ $dateG = $result[0][0];
     <link href="../Styles/form.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawBasic);
 
-function drawBasic() {
+    function drawBasic() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('date', 'Date');
-      data.addColumn('number', 'Sign-Ups');
+      data.addColumn('number', 'Shows');
 
-	var usersA = <?php echo $dateA?>;
-	var usersB = <?php echo $dateB?>;
-      	var usersC = <?php echo $dateC?>;
-     	var usersD = <?php echo $dateD?>;
-     	var usersE = <?php echo $dateE?>;
-      	var usersF = <?php echo $dateF?>;
-      	var usersG = <?php echo $dateG?>;
+      var usersA = <?php echo $dateA?>;
+      var usersB = <?php echo $dateB?>;
+      var usersC = <?php echo $dateC?>;
+      var usersD = <?php echo $dateD?>;
+      var usersE = <?php echo $dateE?>;
+      var usersF = <?php echo $dateF?>;
+      var usersG = <?php echo $dateG?>;
 
       var dateA = new Date();
       var dateB = new Date();
@@ -134,19 +132,11 @@ function drawBasic() {
         [dateF, usersF],
         [dateG, usersG]
       ]);
-
-      var options = {
-        hAxis: {
-          title: 'Date'
-        },
-        vAxis: {
-          title: 'Sign-Up Rate'
-        }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, {
+        height: 400,
+        width: 600
+      });
     }
     </script>
 	</head>
@@ -168,8 +158,8 @@ function drawBasic() {
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="../Processes/pie.php">Types of User</a></li>
-            <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
-            <li class="active"><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+            <li class="active"><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
+            <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
           </ul>
         </li>
       </ul>
