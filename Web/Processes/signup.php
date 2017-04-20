@@ -141,7 +141,9 @@ function drawBasic() {
         },
         vAxis: {
           title: 'Sign-Up Rate'
-        }
+        },
+        'width':800,
+        'height':600
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
