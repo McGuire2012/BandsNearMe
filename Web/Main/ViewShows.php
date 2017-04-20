@@ -9,6 +9,50 @@
   $useremail = $_SESSION['email'];
   $password = $_SESSION['passwords'];
   $username = $_SESSION['username'];
+
+
+  //connect to the database here and search by username/e-mail or whatever you passed from the index.php login screen
+  $user = "SA";
+  $PW = "111#ZXC#222";
+  $conn = new PDO("sqlsrv:server=cisvm-SenPro1;Database=BandsNearMe;ConnectionPooling=0", $user, $PW);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  //need to grab every detail from the account table
+
+  //What I want to do here is, the php will check the account type and the user information will populate in the correct fields, and if changes are made the form is updated.
+  //Based on user type the forms will populate differently. Based on indiv, venue, band.
+
+  $isAdmin = 0;
+  $isPerformance = 0;
+
+  $sql = "SELECT UserType from USERS where UserEmail = '$useremail'";
+  $q = $conn->query($sql);
+  $result1 = $q->fetchAll();
+  $resultType = $result1[0][0];
+
+  if($resultType == "Admin")
+  {
+    $isAdmin = 1;
+    $isPerformance = 1;
+  }
+  if($resultType == "Band")
+  {
+    $isPerformance = 1;
+      //get table information
+    $sql = "SELECT * from Show where BUserName = '$username'";
+    $q = $conn->query($sql);
+    //$result = $q->fetchAll();
+  }
+  if($resultType == "Venue")
+  {
+    $isPerformance = 1;
+      //get table information
+    $sql = "SELECT * from Show where VUserName = '$username'";
+    $q = $conn->query($sql);
+   // $result = $q->fetchAll();
+  }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,29 +97,61 @@
         </div><!--/.nav-collapse -->
     </div><!--/.navbar -->
 
-
+<div class="container">
+<div class="row">
+  <h3 style="text-align: center; padding-top: 100px;"> Your Upcoming Shows </h3>
+</div>
+<div class="row">
+  <p style="text-align: center;"> Select a show to edit</p>
+</div>
+<hr>
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Your Booked Shows</th>
       <th></th>
-      <th>Column heading</th>
-      <th>Column heading</th>
-    </tr>
+      <th>Band</th>
+      <th>Venue</th>
+      <th>Address</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Description</th>
+    </tr> 
   </thead>
 <?php
 echo  "<tbody>";
-echo    "<tr>";
-echo      "<td></td>";
-echo      "<td>".$VenueName."</td>";
-echo      "<td>".$VAddress."</td>";
-echo      "<td>".$ShowDate."</td>";
-echo      "<td>".$ShowTime."</td>";
-echo    "</tr>";
+  while($result = $q->fetch(PDO::FETCH_BOTH))
+ {
+    $showid = $result[0];
+    $ShowDesc = $result[3];
+    $ShowDate = $result[5];
+    $ShowTime = $result[6];
+    $BandName = $result[7];
+    $VenueName = $result[8];
+    $VAddress = $result[9];
+
+    echo    "<tr>";
+    echo      "<td><input type='radio' name='showid' value=".$showid." ></td>";
+    echo      "<td>".$BandName."</td>";
+    echo      "<td>".$VenueName."</td>";
+    echo      "<td>".$VAddress."</td>";
+    echo      "<td>".$ShowDate."</td>";
+    echo      "<td>".$ShowTime."</td>";
+    echo      "<td>".$ShowDesc."</td>";
+    echo    "</tr>";
+  }
 echo  "</tbody>";
 ?>
 </table>
-
+<hr>
+<!-- Buttons -->
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-4">
+      <button type="reset" class="btn btn-default">Edit</button>
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </div>
+  </div>
+</div> <!-- End Container -->
 
   <!-- These must be in file, and they're at the bottom so the page loads quicker -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>

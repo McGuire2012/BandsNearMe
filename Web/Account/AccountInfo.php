@@ -35,6 +35,7 @@
     $isPerformance = 1;
   }
 
+//Get information from table
   if($resultType == "Band")
   {
 	$isPerformance = 1;
@@ -45,14 +46,6 @@
 	$genre = $result[0][2];
 	$rating = $result[0][3];
 	$description = $result[0][4];
-
-	//$sql = "SELECT * from USERS where UserName = '$username'";
-	//$q = $conn->query($sql);
-	//$result = $q->fetchAll();
-	//$password = $result[0][0];
-	//$userType = $result[0][1];
-	//$userEmail = $result[0][2];
-	//$startDate = $result[0][3];
 
   } else if ($resultType == "Venue")
   {
@@ -73,17 +66,8 @@
 	//$userEmail = $result[0][2];
 	//$startDate = $result[0][3];
 
-  } else
-  {
-	//$sql = "SELECT * from USERS where UserName = '$username'";
-	//$q = $conn->query($sql);
-	//$result = $q->fetchAll();
-	//$password = $result[0][0];
-	//$userType = $result[0][1];
-	//$userEmail = $result[0][2];
-	//$startDate = $result[0][3];
-  }
-
+  } 
+//set information when user enters form
 ?>
 <!DOCTYPE html>
 <html lang="en">
