@@ -65,9 +65,23 @@ $BandName = $result[7];
 $VenueName = $result[8];
 $VAddress = $result[9];
 
+if($_POST['showIdentity'])
+{
+  $ShowDesc = $_POST['ShowDesc'];
+  $ShowDate = $_POST['showDate'];
+  $ShowTime = $_POST['showTime'];
+  $BandName = $_POST['bandName'];
+  $VenueName = $_POST['venueName'];
+  $VAddress = $_POST['Vaddress'];
 
-//Redirect back to page
-	//header('Location: ../Main/ViewShows.php');
+  $sql = "UPDATE SHOW SET SDesc = '$ShowDesc',ShowDate = '$ShowDate',ShowTime = '$ShowTime',BandName = '$BandName',VenueName = '$VenueName',VAddress = '$VAddress' where ShowID = '$id'";
+    $q = $conn->query($sql);
+
+
+  //Redirect back to page
+  	header('Location: ../Main/ViewShows.php');
+}
+
 ?>
 
 
@@ -149,26 +163,26 @@ $VAddress = $result[9];
     <div class="form-group">
       <label for="ShowDate" class="col-lg-2 control-label">Date</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="showDate" name= "showDate" value="<?php echo $showDate ?>" style="color:#474747">
+        <input type="text" class="form-control" id="showDate" name= "showDate" value="<?php echo $ShowDate ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="showTime" class="col-lg-2 control-label">Time</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="showTime" name= "showTime" value="<?php echo $showTime ?>" style="color:#474747">
+        <input type="text" class="form-control" id="showTime" name= "showTime" value="<?php echo $ShowTime ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="text" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea" name = "ShowDesc" style="color:#474747"><?php echo $showDesc ?></textarea>
+        <textarea class="form-control" rows="3" id="textArea" name = "ShowDesc" style="color:#474747"><?php echo $ShowDesc ?></textarea>
       </div>
     </div>
     <div class="form-group">
     </div>
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
+        <a href="../Main/ViewShows.php" class="btn btn-default" role="button">Cancel</a>
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
