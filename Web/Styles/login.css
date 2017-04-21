@@ -1,6 +1,5 @@
 body {
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
   font-family: "Open Sans", sans-serif;
   background-repeat: no-repeat;
   background-image: url("Bands.png");
@@ -19,16 +18,11 @@ body {
   border-radius: 15px;
 }
 .modal-header, .modal-body, .modal-footer{
-  background-color: #4F4141;
-  color: #EFEDED;
+  background-color: #FFFFFF;
+  color: #4A4A4A;
 }
 
-.btn-default{
-  background-color: #A7A0A0;
-}
-.btn-primary, active, pressed, hover{
-  background-color: firebrick;
-}
+
 .center {
   margin: auto;
   width: 100%;

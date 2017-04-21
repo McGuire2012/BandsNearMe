@@ -100,6 +100,11 @@ if($_POST['repeatPasswords'])
     <link href="Styles/cover.css" rel="stylesheet">
 	<link href="Styles/login.css" rel="stylesheet">
 
+  <style type="text/css">
+    input {
+      color: #4A4A4A;
+    }
+  </style>
 
   </head>
 
@@ -169,14 +174,14 @@ if($_POST['repeatPasswords'])
       <div class="modal-body">
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" name = "emails" id="inputEmail"   placeholder="Email" required>
+          <input style="color: #4A4A4A" type="text" class="form-control" name = "emails" id="inputEmail"   placeholder="Email" required>
         </div>
         <br>
         <?php echo "$email";?>
 
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" name = "passwords" id="inputPassword"  placeholder="Password" required>
+           <input style="color: #4A4A4A" type="password" class="form-control" name = "passwords" id="inputPassword"  placeholder="Password" required>
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> Remember Password
@@ -208,28 +213,31 @@ if($_POST['repeatPasswords'])
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Login</h4>
+        <h4 class="modal-title" style="text-align: center">Create Account</h4>
       </div>
 
     <!--Modal Body -->
   <form id = "create-form" action="" method="post"> <!--form-->
-      <div class="modal-body">
+      <div class="modal-body" >
         <label for="inputEmail" class="col-md-1 control-label">Email</label>
         <div class="col-md-12">
-          <input type="text" class="form-control" name = "emails" id="inputEmail" placeholder="Email" required>
+          <input style="color: #4A4A4A" type="text" class="form-control" name = "emails" id="inputEmail" placeholder="Email" required>
         </div>
         <br>
         <?php echo "$emailError"; ?>
         <label for="inputPassword" class="col-md-1 control-label">Password</label>
         <div class="col-md-12">
-           <input type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
+           <input  style="color: #4A4A4A" type="password" class="form-control" name ="passwords" id="inputPassword" placeholder="Password" required>
           <br>
-          <input type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
-          <span class="error"><?php echo "$passError";?></span>
 
-          <input type="checkbox" required>*By creating an account you agree to our <a href="#">Terms & Privacy</a>.
+          <input  style="color: #4A4A4A" type="password" class="form-control" name = "repeatPasswords" id="repeatPassword" placeholder="Repeat Password" required>
+          <span class="error"><?php echo "$passError";?></span>
+          <div class="checkbox">
+                <label>
+                  <input type="checkbox" required>*By creating an account you agree to our <a href="#">Terms & Privacy</a>.
+                </label>
+          </div>
           <br>
-        </div>
       </div>
     <!-- Modal Footer -->
       <div class="modal-footer">
