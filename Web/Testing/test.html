@@ -31,7 +31,7 @@
 	</head>
 
 	<body>
- 
+
 <!--Top & SideNavBar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
@@ -55,7 +55,7 @@
 
 <div class="container" >
   <!-- FORM -->
-  
+
    <form class="form-horizontal" >
       <fieldset>
 
@@ -66,10 +66,42 @@
 </div> <!-- End Container -->
 
     <div class ="row" style="padding-top: 30px">
-        <div class="col-sm-6" style="padding-top: 100px"><button type="button" class="btn btn-primary" onclick="myFunc()">Get Location</button></div>
-        <div class="col-sm-6 map">
-          <div class="google-map-canvas" id="map"></div>
-        </div>
+			<form id = "VUser"  action = "" method = "post" style = "display:none;">
+
+				<div id="map"></div>
+
+				Email: <br>
+				<input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
+				<br>
+				Password: <br>
+				<input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+				<br>
+				User Name <br>
+				<input type="text" name="UserName">
+				<?php echo "<br>"; echo $usernameError; ?>
+				<br>
+				Venue Name <br>
+				<input type="text" name="VenueName">
+				<br>
+				Venue Address <br>
+				<input type="text" name="VAddress">
+				<br>
+				Location Latitude <br>
+				<input type="text" name="VLat" readonly="">
+				<br>
+				Location Longitude <br>
+				<input type="text" name="VLong" readonly="">
+				<br>
+				<div class="row">
+
+					<div class="col-md-6">
+						<textarea name="VenueDesc" cols="60" rows="10" placeholder="Description of the Venue" required></textarea>
+
+					</div>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary"  >Submit</button>
+			</form>
     </div>
   <script>
       var map;
@@ -79,8 +111,12 @@
           zoom: 8
         });
       }
+
+
+
+
 </script>
-      
+
 
 
 	</body>

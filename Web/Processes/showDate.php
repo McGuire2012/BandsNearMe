@@ -186,8 +186,9 @@ $queryDateA = date("Y-m-d", strtotime( '-6 days' ) );
         <div class="col-lg-4"></div>
         <div class="col-lg-4"><p>This report displays the amount of shows created per day with BandsNearMe starting from 7 days ago to today's date. </p></div>
       </div>
-			<div class = "col-lg-10" id="chart_div">
-
+      <div class = "row">
+			<div class = "col-lg-8 col-lg-offset-2" id="chart_div">
+      </div>
 			</div>
 
 		</div>

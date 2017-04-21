@@ -147,11 +147,12 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4"><p>This report displays the different kinds of users as a percentage from total users in the system.</p></div>
 			</div>
-			<div class = "col-lg-10" >
+			<div class = "row">
+			<div class = "col-lg-8 col-lg-offset-2" >
 				<div id="piechart" style="width: 900px; height: 500px;">
 				</div>
-			</div>
-
+		</div>
+	</div>
 		</div>
 
 

@@ -200,10 +200,11 @@ function drawBasic() {
         <div class="col-lg-4"><p>This report displays the sign-up rate per day with BandsNearMe starting from 7 days ago to today's date. The dots on the line
                                   displays the amount of sign-up for that day.</p></div>
       </div>
-			<div class = "col-lg-10" id="chart_div">
+      <div class = "row">
+
+			<div class = "col-lg-8 col-lg-offset-2" id="chart_div">
 
 			</div>
-
 		</div>
 
 

@@ -136,7 +136,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY8dAB_B3DQCGh_TiiuWWB0w9qGwhhqdg&callback=initMap"
     async defer></script>
-	
+
   </head>
 
 	<body>
@@ -213,7 +213,7 @@
       <form id = "VUser"  action = "" method = "post" style = "display:none;">
 
         <div id="map"></div>
-        
+
         Email: <br>
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
@@ -230,12 +230,7 @@
 				Venue Address <br>
         <input type="text" name="VAddress">
         <br>
-				Location Latitude <br>
-        <input type="text" name="VLat" readonly="">
-        <br>
-				Location Longitude <br>
-        <input type="text" name="VLong" readonly="">
-        <br>
+				
         <div class="row">
 
     			<div class="col-md-6">
