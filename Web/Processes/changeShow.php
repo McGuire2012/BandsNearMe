@@ -132,7 +132,12 @@ if($_POST['showIdentity'])
         </div><!--/.nav-collapse -->
     </div><!--/.navbar -->
 
+
  <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9 col-sm-push-3">
+<!-- Content here -->
+
 <div class="panel panel-default">
  <form class="form-horizontal" id="editShow" name ="editShow" action="" method="post">
   <fieldset>
@@ -189,9 +194,21 @@ if($_POST['showIdentity'])
   </fieldset>
  </form> <!-- End Form-->
 </div>
+
+<!-- Sidebar here -->
+</div> <!--/.col-xs-12.col-sm-9-->
+        <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+          <div class="list-group" style="padding-top: 50px">
+            <h3 class="list-group-item-heading"><?php echo $username; ?></h3>
+            <a href="../Account/AccountInfo.php" class="list-group-item">Edit Account</a>
+            <a href="../Account/editProfile.php" class="list-group-item">Edit Profile</a>
+            <a href="../Main/ViewShows.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>View Shows</a>
+            <a href="../Processes/UploadEvents.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      
+  </div><!--/row-->
 </div> <!-- End Container -->
-
-
 
 
   <!-- These must be in file, and they're at the bottom so the page loads quicker -->
