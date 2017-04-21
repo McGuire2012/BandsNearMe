@@ -154,106 +154,157 @@
 </div><!--/.navbar -->
 
 
-
+<!-- Container -->
 <div class="container">
-  <!-- FORM -->
   <div class="panel panel-default">
- <form class="form-horizontal">
-  <fieldset>
-			<div class="col-lg-12">
-			<div class = "col-lg-10">
+
+      <!-- Error Code -->
         <br><br>
         <?php echo $errorISH; ?>
-        <form id = "userChoice" >
-        <input type="radio" name="choice" value="indiv" onclick="doIndiv()">Individual User
-        <input type="radio" name="choice" value="band" onclick="doBand()">Band
-        <input type="radio" name="choice" value="venue" onclick="doVenue()">Venue
-      </form>
-      <form id = "indivUser"  action = "" method = "post" style = "display:none;">
-        Email: <br>
-        <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
-        <br>
-        Password: <br>
-        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
-        <br>
-        User Name <br>
-        <input type="text" name="UserName">
-        <?php echo $usernameError; ?>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary"  >Submit</button>
-      </form>
-      <form id = "BUser"  action = "" method = "post" style = "display:none;">
-        Email: <br>
-        <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
-        <br>
-        Password: <br>
-        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
-        <br>
-        User Name <br>
-        <input type="text" name="UserName">
-        <?php echo $usernameError; ?>
-        <br>
-        Band Name <br>
-        <input type="text" name="BandName">
-        <br>
-        Genre <br>
-        <input type="text" name="Genre">
-        <br>
-        <div class="row">
 
-    			<div class="col-md-6">
+
+        <!-- Radio Button Choices -->
+          <form class="form-horizontal" id = "userChoice" >
+            <div class= "row">
+              <div class="col-md-6 col-md-offset-3">
+                <input type="radio" name="choice" value="indiv" onclick="doIndiv()">Individual User
+                <input type="radio" name="choice" value="band" onclick="doBand()">Band
+                <input type="radio" name="choice" value="venue" onclick="doVenue()">Venue
+              </div>
+            </div>
+          </form>
+      
+<!-- Indiv User Form -->
+    <form class="form-horizontal" id = "indivUser"  action = "" method = "post" style = "display:none;">
+      <fieldset>
+        <div class="form-group">
+          <label for="Email" class="col-lg-2 control-label">E-mail</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" type="email" class="form-control" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Password" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control" type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Username" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control"  type="text" name="UserName">
+        <?php echo $usernameError; ?>
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary" >Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+<!-- Band Form -->
+      <form class="form-horizontal" id = "BUser"  action = "" method = "post" style = "display:none;">
+        <fieldset>
+        <div class="form-group">
+          <label for="Email" class="col-lg-2 control-label">E-mail</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" type="email" class="form-control" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Password" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control" type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Username" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control"  type="text" name="UserName">
+        <?php echo $usernameError; ?>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="BandName" class="col-lg-2 control-label">Band Name</label>
+            <div class="col-lg-10">
+              <input type="text" name="BandName">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Genre" class="col-lg-2 control-label">Genre</label>
+            <div class="col-lg-10">
+              <input type="text" name="Genre">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="BandDesc" class="col-lg-2 control-label">Description</label>
+    			<div class="col-lg-10">
     				<textarea name="BandDesc" cols="60" rows="10" placeholder="Description of the Band" required></textarea>
-
     			</div>
     		</div>
         <br>
-        <button type="submit" class="btn btn-primary"  >Submit</button>
-      </form>
-      <form id = "VUser"  action = "" method = "post" style = "display:none;">
-
-        <div id="map"></div>
-
-        Email: <br>
-        <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
-        <br>
-        Password: <br>
-        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
-        <br>
-        User Name <br>
-        <input type="text" name="UserName">
-        <?php echo "<br>"; echo $usernameError; ?>
-        <br>
-        Venue Name <br>
-        <input type="text" name="VenueName">
-        <br>
-				Venue Address <br>
-        <input type="text" name="VAddress">
-        <br>
-				
-        <div class="row">
-
-    			<div class="col-md-6">
-    				<textarea name="VenueDesc" cols="60" rows="10" placeholder="Description of the Venue" required></textarea>
-
-    			</div>
-    		</div>
-        <br>
-        <button type="submit" class="btn btn-primary"  >Submit</button>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary" >Submit</button>
+          </div>
+        </div>
+        </fieldset>
       </form>
 
+<!-- Venue Form -->
+      <form class="form-horizontal" id = "VUser"  action = "" method = "post" style = "display:none;">
+        <fieldset>
+        <div class="form-group">
+          <label for="Email" class="col-lg-2 control-label">E-mail</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" type="email" class="form-control" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Password" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control" type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Username" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <input style="color:#474747" class="form-control"  type="text" name="UserName">
+        <?php echo $usernameError; ?>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="VenueName" class="col-lg-2 control-label">Venue Name</label>
+            <div class="col-lg-10">
+              <input type="text" name="VenueName">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="VenueName" class="col-lg-2 control-label">Venue Name</label>
+            <div class="col-lg-10">
+              <input type="text" name="VenueName">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="VenueDesc" class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <textarea name="VenueDesc" cols="60" rows="10" placeholder="Description of the Venue" required></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary" >Submit</button>
+          </div>
+        </div>
+        </fieldset>
+      </form>
 
-			</div>
+<!-- End Forms -->
 
-		</div>
-
-
-
-
-  </fieldset>
-</form> <!-- End Form-->
  </div>
-
 </div> <!-- End Container -->
 
 
