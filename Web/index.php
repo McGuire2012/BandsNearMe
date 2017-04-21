@@ -10,7 +10,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if($_POST['emails'])
 {
-  $emailGood = "<script>$(function() { $('#loginModal').modal('show'); });</script>";
+
 
 
   $user=$_POST['emails'];
@@ -27,6 +27,7 @@ if($_POST['emails'])
         }
         else {
           $email = "<br><p class='text-danger'>no such email on file.</p>";
+          $emailGood = "<script>$(function() { $('#loginModal').modal('show'); });</script>";
         }
 }
 
@@ -49,7 +50,7 @@ if($_POST['passwords'])
     die();
   }
   else {
-    $passwordRight = "<br><p class='text-danger'>Wrong password Bitch!</p>";
+    $passwordRight = "<br><p class='text-danger'>Invalid password</p>";
   }
 }
 
@@ -65,7 +66,7 @@ if($_POST['repeatPasswords'])
     if($password != $repeatPassword)
       {
         $accountCreate = "<script>$(function() { $('#acctCreationModal').modal('show'); });</script>";
-        $passError = "<br><p class='text-danger'>you done fucked up kid. use the same passwords dumbass.</p>";
+        $passError = "<br><p class='text-danger'>Passwords do not match, please try again.</p>";
       }
       else {
         if($resultCount == "1")

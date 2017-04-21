@@ -49,7 +49,7 @@
   if($resultCount == "1")
   {
     $errorISH = "<span style = 'color:red;'>An error has occured</span><br>";
-    $usernameError = "<br>Username already in user. Please choose another one.";
+    $usernameError = "<br><span style = 'color:red;'>Username already in user. Please choose another one.</span>";
   }
   else {
     $usernameError = "<br>you're good";
