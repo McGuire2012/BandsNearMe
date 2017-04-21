@@ -168,13 +168,13 @@ if($_POST['showIdentity'])
     <div class="form-group">
       <label for="ShowDate" class="col-lg-2 control-label">Date</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="showDate" name= "showDate" value="<?php echo $ShowDate ?>" style="color:#474747">
+        <input type="date" class="form-control" id="showDate" name= "showDate" value="<?php echo $ShowDate ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
       <label for="showTime" class="col-lg-2 control-label">Time</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="showTime" name= "showTime" value="<?php echo $ShowTime ?>" style="color:#474747">
+        <input type="time" class="form-control" id="showTime" name= "showTime" value="<?php echo $ShowTime ?>" style="color:#474747">
       </div>
     </div>
     <div class="form-group">
@@ -206,7 +206,7 @@ if($_POST['showIdentity'])
             <a href="../Processes/UploadEvents.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
-      
+
   </div><!--/row-->
 </div> <!-- End Container -->
 

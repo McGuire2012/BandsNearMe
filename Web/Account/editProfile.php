@@ -109,7 +109,7 @@
 	// if everything is ok, try to upload file
 	} else {
 	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-	        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+	        $profilepicError = "<br>The file ". basename( $_FILES["newProfilePic"]["name"]). " has been uploaded.";
 	    } else {
 
 	        $profilepicError = "Sorry, there was an error uploading your file.";
@@ -252,7 +252,7 @@
 <div class="panel panel-default">
  <form class="form-horizontal" id = "UpdateProfile" action="" method="POST" enctype="multipart/form-data">
   <fieldset>
-  
+
       <div class="form-group">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -321,7 +321,7 @@
             <a href="../Processes/UploadEvents.php" class="list-group-item" <?php if ($isPerformance == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Add Shows</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
-      
+
   </div><!--/row-->
 </div> <!-- End Container -->
 

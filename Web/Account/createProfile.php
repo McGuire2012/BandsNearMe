@@ -161,7 +161,7 @@
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
         Password: <br>
-        <input type="text" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
         <br>
         User Name <br>
         <input type="text" name="UserName">
@@ -175,7 +175,7 @@
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
         Password: <br>
-        <input type="text" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
         <br>
         User Name <br>
         <input type="text" name="UserName">
@@ -202,7 +202,7 @@
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
         Password: <br>
-        <input type="text" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
+        <input type="password" name="Password" <?php echo 'value = "'.$password.'"'; ?>>
         <br>
         User Name <br>
         <input type="text" name="UserName">
