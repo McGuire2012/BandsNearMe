@@ -8,7 +8,7 @@
 
 	$useremail = $_SESSION['email'];
     $username = $_SESSION['username'];
-    $userType = $_SESSION['resultType'];
+    $resultType = $_SESSION['resultType'];
 
   if($resultType == "Admin")
  	{

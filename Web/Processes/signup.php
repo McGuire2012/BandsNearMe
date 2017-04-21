@@ -175,7 +175,7 @@ function drawBasic() {
           </ul>
         </li>
       </ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
 				<li><a href="../Main/about.html">About</a></li>
         <li><a href="../Main/contact.html">Contact</a></li>
       <li><a href="../Processes/logout.php">Logout</a></li>
