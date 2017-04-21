@@ -147,7 +147,7 @@
       <a class="navbar-brand" href="../Processes/logout.php">BandsNearMe</a>
     </div>
     <div class="collapse navbar-collapse" style="background-color:#2C2929">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right"  style="padding-right: 30px">
         <li><a href="../Processes/logout.php">Cancel</a></li>
       </ul>
     </div><!--/.nav-collapse -->
