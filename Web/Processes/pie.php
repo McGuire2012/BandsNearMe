@@ -114,7 +114,6 @@
       <ul class="nav navbar-nav">
         <li><a href="../Main/home.php">Home</a></li>
 				<li><a href="../Account/AccountInfo.php">Account</a></li>
-				<li><a href="../Account/editProfile.php">Edit Profile</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
           <span class="caret"></span></a>
@@ -140,6 +139,14 @@
   <div class="panel panel-default">
   <fieldset>
 			<div class="col-lg-12">
+				<div class = "row">
+				<div class="col-lg-4"></div>
+        <div class="col-lg-4"><h4>Types of User Report</h4></div>
+			</div>
+			<div class = "row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"><p>This report displays the different kinds of users as a percentage from total users in the system.</p></div>
+			</div>
 			<div class = "col-lg-10" >
 				<div id="piechart" style="width: 900px; height: 500px;">
 				</div>

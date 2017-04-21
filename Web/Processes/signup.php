@@ -165,7 +165,6 @@ function drawBasic() {
       <ul class="nav navbar-nav">
         <li><a href="../Main/home.php">Home</a></li>
 				<li><a href="../Account/AccountInfo.php">Account</a></li>
-				<li><a href="../Account/editProfile.php">Edit Profile</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
           <span class="caret"></span></a>
@@ -192,6 +191,15 @@ function drawBasic() {
  <form class="form-horizontal">
   <fieldset>
 			<div class="col-lg-12">
+        <div class = "row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"><h4>Sign-Up Rate Report</h4></div>
+      </div>
+      <div class = "row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"><p>This report displays the sign-up rate per day with BandsNearMe starting from 7 days ago to today's date. The dots on the line
+                                  displays the amount of sign-up for that day.</p></div>
+      </div>
 			<div class = "col-lg-10" id="chart_div">
 
 			</div>
