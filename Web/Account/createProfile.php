@@ -122,9 +122,22 @@
         document.getElementById('BUser').style.display = 'none';
         document.getElementById('VUser').style.display = '';
       }
-
     </script>
-	</head>
+
+    <!-- GOOGLE MAPS -->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY8dAB_B3DQCGh_TiiuWWB0w9qGwhhqdg&callback=initMap"
+    async defer></script>
+	
+  </head>
 
 	<body>
 <!--Top & SideNavBar -->
@@ -198,6 +211,9 @@
         <button type="submit" class="btn btn-primary"  >Submit</button>
       </form>
       <form id = "VUser"  action = "" method = "post" style = "display:none;">
+
+        <div id="map"></div>
+        
         Email: <br>
         <input type="text" name="Email" <?php echo 'value = "'.$useremail.'"'; ?>>
         <br>
