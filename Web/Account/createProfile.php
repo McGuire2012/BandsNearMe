@@ -70,7 +70,7 @@
     //  die();
     }
     elseif ($_POST['VenueName']) {
-      $venuename = $_POST['venueName'];
+      $venuename = $_POST['VenueName'];
       $VenueDescription = $_POST['VenueDesc'];
 			$VenueAddress = $_POST['VAddress'];
 
@@ -273,12 +273,6 @@
             <div class="col-lg-10">
               <input style="color:#474747" class="form-control"  type="text" name="UserName">
         <?php echo $usernameError; ?>
-            </div>
-        </div>
-        <div class="form-group">
-          <label for="VenueName" class="col-lg-2 control-label">Venue Name</label>
-            <div class="col-lg-10">
-              <input type="text" name="VenueName">
             </div>
         </div>
         <div class="form-group">
