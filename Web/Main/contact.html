@@ -6,20 +6,31 @@
     <link href="../Styles/form.css" rel="stylesheet">
     <link href="../Styles/card.css" rel="stylesheet">
   </head>
-  <body style="">
+  <body>
+<!--Top & SideNavBar -->
     <!--Top & SideNavBar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
          <img src="../Styles/LocationBNMicon.png" class="navbar-brand">
-          <a class="navbar-brand" href="home.php">BandsNearMe</a>
+          <a class="navbar-brand" href="../Main/home.php">BandsNearMe</a>
         </div>
         <div class="collapse navbar-collapse" style="background-color:#2C2929">
           <ul class="nav navbar-nav">
-            <li><a href="home.php">Home</a></li>
+            <li><a href="../Main/home.php">Home</a></li>
+            <li><a href="../Account/AccountInfo.php">Account</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" <?php if ($isAdmin == 1){ echo 'style="display:;"'; } else {echo 'style="display:none;"'; } ?>>Reports
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../Processes/pie.php">Types of User</a></li>
+                <li><a href="../Processes/ShowDate.php">Shows Per Day</a></li>
+                <li><a href="../Processes/signup.php">User Sign-Up Rate</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="about.html">About</a></li>
-            <li class="active"><a href="contact.html">Contact</a></li>
+          <ul class="nav navbar-nav navbar-right" style="padding-right: 30px">
+            <li><a href="../Main/about.html">About</a></li>
+            <li class="active"><a href="../Main/contact.html">Contact</a></li>
           <li><a href="../Processes/logout.php">Logout</a></li>
         </ul>
         </div><!--/.nav-collapse -->
@@ -29,28 +40,28 @@
 <div class="container" style="padding: 2px 16px; padding-top: 50px">
 <div class="card-deck">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title"></h4>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="..." alt="Card image cap"  >
     <div class="card-block">
       <h4 class="card-title">Rachel Snyder</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Web Development</small></p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="../Styles/JT.jpg" alt="Card image cap">
+    <img class="card-img-top" src="../Styles/JT.jpg" alt="Card image cap"  style="width:360px ; height:300px">
     <div class="card-block">
       <h4 class="card-title">John Schumm</h4>
       <p class="card-text">John worked on both the database and the web development for BandsNearMe. He worked on the php aspect of the website to connect to the database and retrieve and display data.
                             Also was the life of the party.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Web Development</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="" alt="Card image cap" >
+    <div class="card-block">
+      <h4 class="card-title">Samuel McGuire</h4>
+      <p class="card-text"></p>
+      <p class="card-text"><small class="text-muted">Google API Implementation</small></p>
     </div>
   </div>
 </div>
@@ -58,27 +69,27 @@
 <div class="container" style="padding: 2px 16px; padding-top: 50px">
 <div class="card-deck">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="..." alt="Card image cap" >
     <div class="card-block">
-      <h4 class="card-title"></h4>
+      <h4 class="card-title">Terrance Santilli</h4>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Mobile Development Leader</small></p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="..." alt="Card image cap" >
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
+      <h4 class="card-title">Fahad Alsaudee</h4>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Mobile Development</small></p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="../Styles/merrillee.jpg" alt="Card image cap" style="width:360px ; height:300px">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
+      <h4 class="card-title">Merillee Palmer</h4>
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Mobile Development</small></p>
     </div>
   </div>
 </div>
@@ -88,11 +99,11 @@
 <div class="card" style="background-color: #EBEBEB;box-shadow: none;border-color:#EBEBEB;"></div>
 
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="../Styles/jameslindsey_360noscope.jpg" alt="Card image cap"  style="width:360px ; height:300px">
     <div class="card-block">
-      <h4 class="card-title">Leader James</h4>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h4 class="card-title">James Lindsey</h4>
+      <p class="card-text">James Lindsey served as the Database lead, a member of the Web group, as well as the leader of Work in Progress. He is very tired, but happy to have worked with his team members.</p>
+      <p class="card-text"><small class="text-muted">Team Leader</small></p>
     </div>
   </div>
 
