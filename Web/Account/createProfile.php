@@ -72,11 +72,10 @@
     elseif ($_POST['VenueName']) {
       $venuename = $_POST['VenueName'];
       $VenueDescription = $_POST['VenueDesc'];
-			$VenueAddress = $_POST['VAddress'];
 
       $sql = "INSERT INTO USERS (UserName, UserPW, UserType, UserEmail, VenueName, StartDate, ProfilePic) Values ('$username','$password', 'Venue','$useremail', '$venuename', '$todayDate', '..\Styles\venueIcon.jpg')";
       $q = $conn->query($sql);
-      $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings, VAddress) Values ('$username','$venuename', '0', '$venueDescription', '0', '$VAddress')";
+      $sql = "INSERT INTO Venue (VUserName, VenueName, VRating, VDesc, NumOfRatings) Values ('$username','$venuename', '0', '$venueDescription', '0')";
       $q = $conn->query($sql);
       header("Location: ../Main/home.php");
       die();
@@ -124,18 +123,7 @@
       }
     </script>
 
-    <!-- GOOGLE MAPS -->
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY8dAB_B3DQCGh_TiiuWWB0w9qGwhhqdg&callback=initMap"
-    async defer></script>
+
 
   </head>
 
@@ -173,7 +161,7 @@
               </div>
             </div>
           </form>
-      
+
 <!-- Indiv User Form -->
     <form class="form-horizontal" id = "indivUser"  action = "" method = "post" style = "display:none;">
       <fieldset>

@@ -92,7 +92,7 @@ if($resultType == "Band" || $resultType == "Venue")
 			<br><br>
 		<?php
 		$moreinfo=$_POST['moreinfo'];
-		$rows = explode(PHP_EOL, $moreinfo);
+		$rows = array_map('trim',explode(PHP_EOL, $moreinfo));
 
 		//send request to Show table to retrieve the last show ID
 		//array_shift($rows);
@@ -113,7 +113,7 @@ if($resultType == "Band" || $resultType == "Venue")
 		$zeroAppend = $zeroAppend.$lastId;
 		$showID = "S".$zeroAppend;
 		//get row data
-		$row_data = explode(',', $data);
+		$row_data = array_map('trim',explode(',', $data));
 		$vUsername = $row_data[1];
 		$BUsername = $row_data[0];
 		$sql = "SELECT VenueName, VAddress, VLong, VLat from Venue where VUserName = '$vUsername'";
@@ -130,7 +130,10 @@ if($resultType == "Band" || $resultType == "Venue")
 		$bandName = $result[0][0];
 
 
-		$sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime, BandName, VenueName, VAddress, VLong, VLat) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]', $bandName, $venueName, $VAddress, $VLong, $VLat)";
+
+
+
+		$sql = "INSERT INTO SHOW (ShowID, BUserName, VUserName, SDesc, ShowDate, ShowTime, BandName, VenueName, VAddress, VLong, VLat) VALUES ('$showID','$row_data[0]','$row_data[1]','$row_data[2]','$row_data[3]','$row_data[4]', '$bandName', '$venueName', '$VAddress', '$VLong', '$VLat')";
 
 		try{
 			$q = $conn->query($sql);
@@ -144,6 +147,7 @@ if($resultType == "Band" || $resultType == "Venue")
 		}
 		catch(PDOException $e)
 				{
+					echo $e;
 					echo "<div class='alert alert-dismissible alert-danger'>";
 					echo	"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
 					echo	"<h4>Warning!</h4>";
